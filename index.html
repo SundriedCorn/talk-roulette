@@ -1,155 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talk Roulette — one minute on anything</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0d1017; --bg2:#151a25; --ink:#f2f5fa; --muted:#8d97ad;
-    --line:rgba(255,255,255,.10);
-    --accent:#ff8a4c; --accent2:#ff4d8d; --accent3:#5b8cff;
-  }
-  *{box-sizing:border-box}
-  [hidden]{display:none !important}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-    display:flex; flex-direction:column; align-items:center;
-    min-height:100dvh; padding:28px 20px 40px;
-    background-image:
-      radial-gradient(900px 500px at 15% -10%, rgba(91,140,255,.16), transparent 60%),
-      radial-gradient(800px 480px at 90% 8%, rgba(255,77,141,.14), transparent 60%);
-    background-attachment:fixed;
-  }
-  header{text-align:center; margin-bottom:auto}
-  h1{
-    font-family:Fraunces,Georgia,serif; font-weight:700;
-    font-size:clamp(26px,5vw,40px); margin:0 0 6px; letter-spacing:-.02em;
-  }
-  .sub{color:var(--muted); font-size:14px; margin:0}
-
-  main{
-    width:100%; max-width:680px; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:26px; margin:auto 0;
-  }
-
-  .card{
-    width:100%; min-height:210px; border-radius:22px;
-    background:linear-gradient(180deg,var(--bg2),#10141d);
-    border:1px solid var(--line);
-    box-shadow:0 24px 60px rgba(0,0,0,.45);
-    padding:30px 28px; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center; gap:16px;
-  }
-  .tags{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
-  .tag{
-    font-size:11px; letter-spacing:.13em; text-transform:uppercase;
-    padding:5px 11px; border-radius:999px; border:1px solid var(--line);
-    color:var(--muted); font-weight:600;
-  }
-  .tag.kind{border-color:transparent; color:#101018}
-  .tag.kind[data-kind="word"]{background:linear-gradient(90deg,var(--accent),var(--accent2))}
-  .tag.kind[data-kind="question"]{background:linear-gradient(90deg,var(--accent3),#5be0d0)}
-
-  #out{margin:0; line-height:1.35; letter-spacing:-.015em}
-  #out.word{
-    font-family:Fraunces,Georgia,serif; font-weight:700;
-    font-size:clamp(40px,9vw,68px);
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  #out.question{font-size:clamp(19px,3.4vw,27px); font-weight:500; line-height:1.45; max-width:34ch}
-  #out.idle{color:var(--muted); font-size:17px; font-weight:400}
-
-  .pop{animation:pop .34s cubic-bezier(.2,.9,.3,1.4)}
-  @keyframes pop{from{opacity:0; transform:translateY(10px) scale(.97)} to{opacity:1; transform:none}}
-
-  #go{
-    font:inherit; font-weight:600; font-size:19px; letter-spacing:.01em;
-    color:#12070a; cursor:pointer; border:0;
-    padding:22px 58px; border-radius:999px;
-    background:linear-gradient(135deg,var(--accent),var(--accent2) 55%,var(--accent3));
-    background-size:200% 200%;
-    box-shadow:0 14px 34px rgba(255,77,141,.32), inset 0 1px 0 rgba(255,255,255,.4);
-    transition:transform .12s ease, box-shadow .2s ease, background-position .6s ease;
-  }
-  #go:hover{transform:translateY(-2px); background-position:100% 50%; box-shadow:0 18px 44px rgba(255,77,141,.42), inset 0 1px 0 rgba(255,255,255,.4)}
-  #go:active{transform:translateY(1px) scale(.985)}
-  #go:focus-visible{outline:3px solid #fff; outline-offset:4px}
-
-  .hint{color:var(--muted); font-size:13px; margin:0}
-  kbd{
-    font:inherit; font-size:11px; padding:2px 7px; border-radius:6px;
-    border:1px solid var(--line); background:rgba(255,255,255,.05); color:var(--ink);
-  }
-  footer{margin-top:auto; padding-top:26px; color:var(--muted); font-size:12px; text-align:center}
-  @media (prefers-reduced-motion:reduce){.pop{animation:none} #go{transition:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Talk Roulette | Lesson practice</title>
+  <link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
-
-<header>
-  <h1>Talk Roulette</h1>
-  <p class="sub">One word or one question. Talk about it for a minute.</p>
-</header>
-
-<main>
-  <div class="card">
-    <div class="tags" id="tags" hidden>
-      <span class="tag kind" id="kindTag"></span>
-      <span class="tag" id="themeTag"></span>
-    </div>
-    <p id="out" class="idle">Press the button and start the clock.</p>
-  </div>
-
-  <button id="go">Generate</button>
-  <p class="hint">100 prompts &middot; press <kbd>Space</kbd> for the next one</p>
-</main>
-
-<footer>50 questions &amp; 50 words across tech, science, space, sports, food, travel and more.</footer>
-
-<script src="data.js"></script>
-<script>
-  const out = document.getElementById('out');
-  const tags = document.getElementById('tags');
-  const kindTag = document.getElementById('kindTag');
-  const themeTag = document.getElementById('themeTag');
-  const go = document.getElementById('go');
-
-  // Every item, tagged by kind, so one draw picks freely between words and questions.
-  const POOL = [
-    ...WORDS.map(w => ({ ...w, kind: 'word' })),
-    ...QUESTIONS.map(q => ({ ...q, kind: 'question' }))
-  ];
-
-  let last = -1;
-
-  function generate() {
-    let i = Math.floor(Math.random() * POOL.length);
-    if (POOL.length > 1) while (i === last) i = Math.floor(Math.random() * POOL.length);
-    last = i;
-
-    const item = POOL[i];
-    tags.hidden = false;
-    kindTag.textContent = item.kind === 'word' ? 'Word' : 'Question';
-    kindTag.dataset.kind = item.kind;
-    themeTag.textContent = item.theme;
-
-    out.textContent = item.text;
-    out.className = item.kind;
-    void out.offsetWidth;      // restart the animation on repeat presses
-    out.classList.add('pop');
-  }
-
-  go.addEventListener('click', generate);
-  document.addEventListener('keydown', e => {
-    if (e.code === 'Space' || e.key === 'Enter') { e.preventDefault(); generate(); }
-  });
-</script>
+  <header class="topbar">
+    <a class="brand" href="#">Talk Roulette<span>Small prompts. Real conversations.</span></a>
+    <nav aria-label="Practice mode">
+      <button id="lesson-mode" aria-pressed="true">Lesson practice</button>
+      <button id="roulette-mode" aria-pressed="false">Classic roulette</button>
+    </nav>
+  </header>
+  <main>
+    <section id="lesson-panel" aria-labelledby="page-title">
+      <div class="intro"><p class="eyebrow">YOUR EVERYDAY ENGLISH</p><h1 id="page-title">A little practice.<br>A new situation.</h1><p>Choose your topics. Read the situation. Explain what you would do and why.</p></div>
+      <div class="workspace">
+        <aside class="panel library" aria-labelledby="sets-heading">
+          <div class="section-heading"><h2 id="sets-heading">Practice sets</h2></div>
+          <p class="small muted">Choose one or more topics to practice.</p>
+          <div id="set-list"></div>
+        </aside>
+        <div class="practice-column">
+          <article class="panel challenge" aria-labelledby="situation-heading">
+            <div id="challenge-content" aria-live="polite" aria-atomic="true">
+              <div class="section-heading"><p id="context-label" class="eyebrow"></p><span id="round-label" class="small muted"></span></div>
+              <h2 id="situation-heading">Here’s your situation</h2>
+              <p id="scene-intro" class="scene-intro"></p><div id="scene-events"></div>
+              <div class="task-box"><p class="eyebrow">YOUR TURN</p><p id="task"></p></div>
+              <p class="small muted">Use these three phrases. Change their form or tense to fit your explanation.</p><div id="target-words" class="chips"></div>
+            </div>
+            <details id="hints"><summary>Need a little help?</summary><div id="hint-content"></div></details>
+            <div class="generate-row"><button id="next" class="primary">New situation <span aria-hidden="true">↗</span></button><span class="small muted">Practice a little. Try another.</span></div>
+          </article>
+          <details class="panel vocabulary"><summary id="vocabulary-summary">Your vocabulary list</summary><div id="vocabulary-list"></div></details>
+        </div>
+      </div>
+    </section>
+    <section id="roulette-panel" hidden aria-labelledby="classic-title"><p class="eyebrow">THE ORIGINAL</p><h1 id="classic-title">One minute on anything.</h1><article class="panel classic-card" aria-live="polite"><p id="classic-label" class="eyebrow">WORD OR QUESTION</p><h2 id="classic-prompt">Press the button and start talking.</h2></article><button id="classic-next" class="primary">Generate</button><p class="muted">50 words. 50 questions. Plenty to talk about.</p></section>
+  </main>
+  <footer>Made for practice, one situation at a time. Works offline.</footer>
+  <script src="data.js"></script>
+  <script src="data/catalog.js"></script>
+  <script src="data/vocabulary/home.js"></script>
+  <script src="data/situations/home/cleaning.js"></script>
+  <script src="data/situations/home/household.js"></script>
+  <script src="data/situations/home/routines.js"></script>
+  <script src="data/vocabulary/restaurant.js"></script>
+  <script src="data/situations/restaurant/operations.js"></script>
+  <script src="data/situations/restaurant/service.js"></script>
+  <script src="data/situations/restaurant/teamwork.js"></script>
+  <script src="data/vocabulary/travel.js"></script>
+  <script src="data/situations/travel/accommodation.js"></script>
+  <script src="data/situations/travel/exploring.js"></script>
+  <script src="data/situations/travel/transport.js"></script>
+  <script src="data/vocabulary/everyday.js"></script>
+  <script src="data/situations/everyday/plans.js"></script>
+  <script src="data/situations/everyday/relationships.js"></script>
+  <script src="data/situations/everyday/routines.js"></script>
+  <script src="lib/sets.js"></script>
+  <script src="lib/generator.js"></script>
+  <script src="components/dom.js"></script>
+  <script src="components/practice.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

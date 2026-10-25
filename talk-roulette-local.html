@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-+f0JRhlHV1u4j/34lYH5n1+6bMmKwL8dFDTgONapnpo=' 'sha256-XhkUv30HkVfGtqtSEreZ3VMHWz1HNEe2LLli3xcn6t0=' 'sha256-cMiueFPdESnlDl1tpIYiHzNS+eynvFLW+pqrecXkegc=' 'sha256-9LUTC6mT2Z07YOoJI+NYKPGxeoe4UgI3QazSeGYtF7g=' 'sha256-QkVeNTtOCby0p5GeZpmZKQQVy9H61ryTBzQaxYfEpSw=' 'sha256-vF025OTNYsyUqaZE3UYlLHuQPVr+I13N0RUQIiwR6gE=' 'sha256-mKtGWg82Imuj1qZDkVDITodIvvyqn/jSWbApBSGGFNY=' 'sha256-P1DRJq47t8rEwnHRCvlI/uJIp7CWoUbq+zN3R05e0s0=' 'sha256-ZBOpkyOiTLamJ7/kazFdhRZPqo9nmVDGp/2yr1srapk=' 'sha256-UBhR+LZJRrpOVf35M1cXKQkWTYa6MKkyT4suhoSghEk=' 'sha256-bs7nS7NuQ9psVlJmbypG0Hg+Tn9Vd6aorrNZZFEwCuk=' 'sha256-jIydXMTmCLUq4cNXGuu9qxNOhXQ/xGZ/Bs4CtIZgZP0=' 'sha256-yib/D6IRPqOoCMBdam6aX2Gv+PabU7okoq9OFKQu2gw=' 'sha256-Pn2omSu35x7U1Ux1uQQveVg5Ri0AQ8q3PGbRSs4l/Tk=' 'sha256-z4EFf5d/RNyv/p8qfxBh35ECWqGA9pK5/dHW1aoiSW4=' 'sha256-Q1oarDthIjd4i8uDq227d7ocByU9cgF2yhEYl2MxK6Y=' 'sha256-ij1s7N6skAjKtwfwikXidcQd2rsW6ZqkRCgFw77H05k=' 'sha256-zpotSf3alRjBlmgFWqmUjxkc6HnEou5CPu5vLT6xNcI=' 'sha256-Ay0xOU+L3UkQ7f04YeWyjYKT1fC8LINR+S+rWQGPm2Q=' 'sha256-A+uxzl5M8wzmVUL1gNlASUuQ7Lhn3UtP5m0Rg0Yxaxo=' 'sha256-hJeS+QMdokSL0hwn3Il37nTkaonFmW4JFaKz/KSpNOc=' 'sha256-lDssAZh33HTLPd367rzStL/ixxC+M/y3Zg3MazQ0Pbw=' 'sha256-WN8OWRLkWNrybqhWtjpu0NhsgEoTaCEDAM1KRnRzNkw='; style-src 'sha256-6LBCl2h7BvR854lHmk1/a404PgtTEFKU5ddB5mercrw='; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Talk Roulette | Lesson practice</title>
+  <style>
+:root{color-scheme:light;--bg:#f7f5f1;--panel:#ffffff;--ink:#242a36;--muted:#596273;--line:#dedfe5;--accent:#a84225;--blue:#4456a4;--radius:20px;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg)}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(ellipse at 80% 0,#f2dfd855,transparent 55%);min-height:100vh}
+button,input,textarea,select{font:inherit}
+button,select,summary{cursor:pointer}
+button{color:var(--ink);background:#f1f2f5;border:1px solid var(--line);padding:10px 14px;border-radius:10px}
+button:hover{background:#e4e7ed}
+button:disabled{opacity:.45;cursor:not-allowed}
+a{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+input,textarea,select{background:var(--panel);color:var(--ink);border:1px solid #a7afbd;border-radius:9px;padding:11px;width:100%}
+textarea{resize:vertical}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
+label{display:grid;gap:8px;font-size:13px;font-weight:600}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:Georgia,serif;font-size:clamp(36px,4.5vw,58px);font-weight:400;letter-spacing:-2px;line-height:1.12;margin-bottom:16px}
+h2{font-size:19px}
+h3{font-size:15px}
+p{line-height:1.65}
+summary{font-weight:600;line-height:1.5}
+details[open]>summary{margin-bottom:20px}
+
+.topbar{max-width:1200px;margin:auto;padding:30px 28px;display:flex;justify-content:space-between;align-items:center;gap:22px;border-bottom:1px solid var(--line)}
+.brand{font-family:Georgia,serif;font-weight:bold;font-size:25px;text-decoration:none}
+.brand span{display:block;font-family:system-ui,sans-serif;font-weight:400;font-size:11px;letter-spacing:.2px;color:var(--muted);margin-top:6px}
+nav{display:flex;padding:5px;background:#ece9e4;border-radius:12px}
+nav button{border:0;background:transparent;font-size:13px}
+nav button[aria-pressed=true]{background:#ffffff;color:#803b24}
+main{max-width:1200px;margin:auto;padding:42px 28px}
+.intro{margin-bottom:32px}
+.intro>p:last-child{color:var(--muted);font-size:15px}
+.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:700;color:var(--accent);margin-bottom:14px}
+.workspace{display:grid;grid-template-columns:280px minmax(0,1fr);gap:26px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:25px}
+.section-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.section-heading h2{margin-bottom:0}
+.library .section-heading{margin-bottom:12px}
+.small{font-size:12px}
+.muted{color:var(--muted)}
+
+.set-row{display:flex;gap:8px;align-items:center;margin:10px 0;padding:12px 10px;border:1px solid var(--line);border-radius:12px}
+.set-row:has(input:checked){background:#fff0e6;border-color:#d39c80}
+.set-row label{display:flex;flex:1;align-items:center;gap:12px;cursor:pointer;min-width:0}
+.set-row input{width:17px;height:17px;accent-color:var(--accent);flex-shrink:0}
+.set-row strong{display:block;font-weight:500;overflow-wrap:anywhere}
+.set-row small{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:4px}
+.library>p:last-child{margin-bottom:0}
+.practice-column{display:grid;gap:18px}
+
+.challenge{padding:30px}
+.challenge h2{font-family:Georgia,serif;font-size:29px;font-weight:400;margin-top:9px}
+.scene-intro{color:var(--blue);font-size:15px;margin-bottom:16px}
+#scene-events p{font-size:18px;line-height:1.65;margin-bottom:12px}
+.task-box{background:#faf3ed;border-left:2px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:24px 0}
+.task-box .eyebrow{margin-bottom:8px}
+.task-box p:last-child{margin-bottom:0;font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:#f0edfb;border:1px solid #d8d1ed;border-radius:7px;padding:6px 11px;font-size:13px;color:#504074;overflow-wrap:anywhere}
+#hints{margin-top:24px}
+#hints summary{font-size:13px;color:var(--muted)}
+.hint-entry{font-size:13px;border-top:1px solid var(--line);padding-top:12px}
+.hint-entry p{margin:6px 0;color:var(--muted)}
+.hint-entry strong{color:var(--ink)}
+.generate-row{display:flex;gap:18px;align-items:center;margin-top:28px}
+.primary{background:linear-gradient(120deg,#ffb18a,#f497b4);border:0;color:#26131b;font-weight:700;padding:14px 22px}
+.primary:hover{background:#ffbf9e}
+.primary span{margin-left:14px}
+.vocabulary{padding:20px 25px}
+.vocab-group{margin-top:20px}
+.vocab-word{display:flex;gap:16px;padding:10px 0;border-top:1px solid var(--line);font-size:13px}
+.vocab-word strong{min-width:115px;flex:0 0 30%;overflow-wrap:anywhere}
+.vocab-word span{color:var(--muted)}
+
+footer{padding:24px;text-align:center;color:var(--muted);font-size:11px}
+#roulette-panel{max-width:760px;margin:40px auto;text-align:center}
+.classic-card{margin:30px 0;min-height:240px;display:flex;flex-direction:column;justify-content:center}
+.classic-card h2{font-size:30px;line-height:1.5;font-family:Georgia,serif;font-weight:400}
+#roulette-panel>.muted{margin-top:20px}
+
+@media(max-width:800px){.workspace{grid-template-columns:1fr}
+.library #set-list{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.intro br{display:none}
+.topbar{padding:22px 20px}
+main{padding:28px 20px}
+.topbar{align-items:flex-start}
+.brand span{max-width:160px}
+nav{flex-direction:column}
+.challenge{padding:24px}
+.generate-row>.small{display:none}
+}
+
+@media(max-width:450px){.library #set-list{grid-template-columns:1fr}
+.topbar{gap:10px}
+.brand{font-size:22px}
+nav button{font-size:11px;padding:8px}
+.panel{padding:20px}
+main{padding:28px 14px}
+.library #set-list{gap:0}
+.set-row{margin:5px 0}
+.vocab-word{gap:10px}
+}
+
+@media(prefers-reduced-motion:no-preference){button{transition:background .15s ease}
+.challenge{animation:appear .3s ease}
+@keyframes appear{from{opacity:.4;transform:translateY(6px)}
+to{opacity:1;transform:none}
+}
+}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">Talk Roulette<span>Small prompts. Real conversations.</span></a>
+    <nav aria-label="Practice mode">
+      <button id="lesson-mode" aria-pressed="true">Lesson practice</button>
+      <button id="roulette-mode" aria-pressed="false">Classic roulette</button>
+    </nav>
+  </header>
+  <main>
+    <section id="lesson-panel" aria-labelledby="page-title">
+      <div class="intro"><p class="eyebrow">YOUR EVERYDAY ENGLISH</p><h1 id="page-title">A little practice.<br>A new situation.</h1><p>Choose your topics. Read the situation. Explain what you would do and why.</p></div>
+      <div class="workspace">
+        <aside class="panel library" aria-labelledby="sets-heading">
+          <div class="section-heading"><h2 id="sets-heading">Practice sets</h2></div>
+          <p class="small muted">Choose one or more topics to practice.</p>
+          <div id="set-list"></div>
+        </aside>
+        <div class="practice-column">
+          <article class="panel challenge" aria-labelledby="situation-heading">
+            <div id="challenge-content" aria-live="polite" aria-atomic="true">
+              <div class="section-heading"><p id="context-label" class="eyebrow"></p><span id="round-label" class="small muted"></span></div>
+              <h2 id="situation-heading">Here’s your situation</h2>
+              <p id="scene-intro" class="scene-intro"></p><div id="scene-events"></div>
+              <div class="task-box"><p class="eyebrow">YOUR TURN</p><p id="task"></p></div>
+              <p class="small muted">Use these three phrases. Change their form or tense to fit your explanation.</p><div id="target-words" class="chips"></div>
+            </div>
+            <details id="hints"><summary>Need a little help?</summary><div id="hint-content"></div></details>
+            <div class="generate-row"><button id="next" class="primary">New situation <span aria-hidden="true">↗</span></button><span class="small muted">Practice a little. Try another.</span></div>
+          </article>
+          <details class="panel vocabulary"><summary id="vocabulary-summary">Your vocabulary list</summary><div id="vocabulary-list"></div></details>
+        </div>
+      </div>
+    </section>
+    <section id="roulette-panel" hidden aria-labelledby="classic-title"><p class="eyebrow">THE ORIGINAL</p><h1 id="classic-title">One minute on anything.</h1><article class="panel classic-card" aria-live="polite"><p id="classic-label" class="eyebrow">WORD OR QUESTION</p><h2 id="classic-prompt">Press the button and start talking.</h2></article><button id="classic-next" class="primary">Generate</button><p class="muted">50 words. 50 questions. Plenty to talk about.</p></section>
+  </main>
+  <footer>Made for practice, one situation at a time. Works offline.</footer>
+  <script>
+// 50 questions + 50 words, pulled from mixed themes.
+// Each item is designed to sustain at least one minute of talking.
+
+const QUESTIONS = [
+  { theme: "Tech",        text: "If you could delete one app from every phone on Earth, which one — and what would people do instead?" },
+  { theme: "Tech",        text: "What piece of technology from your childhood do you actually miss?" },
+  { theme: "Tech",        text: "Should robots take the jobs people enjoy, or only the jobs people hate?" },
+  { theme: "Tech",        text: "What small invention changed your daily life more than the internet did?" },
+  { theme: "Tech",        text: "If your phone could talk about you for one minute, what would it say?" },
+  { theme: "Tech",        text: "Would you let an AI plan a whole week of your life? Where would you draw the line?" },
+  { theme: "Science",     text: "What did you believe as a child that turned out to be completely wrong?" },
+  { theme: "Science",     text: "If you could understand one animal's language for a day, which animal would you pick?" },
+  { theme: "Science",     text: "Why are people afraid of things that are statistically very safe?" },
+  { theme: "Science",     text: "What experiment would you run if money and rules didn't exist?" },
+  { theme: "Science",     text: "Is it better to know the truth or to be happy?" },
+  { theme: "Space",       text: "Would you take a one-way ticket to Mars? What three things would go in your bag?" },
+  { theme: "Space",       text: "If aliens watched Earth for exactly one day, what would confuse them most?" },
+  { theme: "Space",       text: "What should we send into space as a message about humans?" },
+  { theme: "Space",       text: "Will humans live on another planet in your lifetime? Do you want that?" },
+  { theme: "Sports",      text: "Why do people cry about a game they didn't play in?" },
+  { theme: "Sports",      text: "Invent a sport that doesn't exist yet. How do you win it?" },
+  { theme: "Sports",      text: "Is losing more useful than winning?" },
+  { theme: "Sports",      text: "If you had to be a professional athlete tomorrow, which sport gives you the best chance?" },
+  { theme: "Food",        text: "What food does everyone love that you secretly don't understand?" },
+  { theme: "Food",        text: "Describe your perfect meal — and say who is sitting at the table." },
+  { theme: "Food",        text: "Should restaurants have no menu at all and just cook what they want for you?" },
+  { theme: "Food",        text: "What smell from a kitchen will you never forget?" },
+  { theme: "Travel",      text: "What is the strangest place you have ever slept?" },
+  { theme: "Travel",      text: "Ten cities once, or one city ten times?" },
+  { theme: "Travel",      text: "You have to live inside an airport for a month. How do you survive it?" },
+  { theme: "Travel",      text: "Which city do you want to see before it changes completely?" },
+  { theme: "Music",       text: "What song would you use to describe your last year?" },
+  { theme: "Music",       text: "Can you hate a song and still sing along to it? Why does that happen?" },
+  { theme: "Music",       text: "If your morning had a soundtrack, what would be playing?" },
+  { theme: "Art",         text: "Should famous paintings stay in museums, or hang in the street where everyone sees them?" },
+  { theme: "Film",        text: "Which movie ending would you rewrite, and how?" },
+  { theme: "History",     text: "Which year in history would you visit for exactly one hour?" },
+  { theme: "History",     text: "What thing we do today will look completely crazy in 100 years?" },
+  { theme: "History",     text: "Who from the past would be most shocked by the world right now?" },
+  { theme: "Nature",      text: "If you could stop one season from ever ending, which one?" },
+  { theme: "Nature",      text: "What natural place made you feel small?" },
+  { theme: "Nature",      text: "Should some parts of the world be closed to people forever?" },
+  { theme: "Mind",        text: "What lie do people tell themselves every morning?" },
+  { theme: "Mind",        text: "Do you become a slightly different person in another language?" },
+  { theme: "Mind",        text: "What compliment do you still remember years later?" },
+  { theme: "Mind",        text: "Can you be close friends with someone who disagrees with you about everything?" },
+  { theme: "Mind",        text: "What makes a stranger interesting in the first ten seconds?" },
+  { theme: "Work",        text: "If work paid nothing, what would you still get up and do?" },
+  { theme: "Work",        text: "You get one free year and enough money. What happens in that year?" },
+  { theme: "Work",        text: "Should everyone have to work one month in a shop or a restaurant?" },
+  { theme: "Money",       text: "What is the best thing you ever bought for very little money?" },
+  { theme: "Everyday",    text: "Which rule in your country would you delete tomorrow morning?" },
+  { theme: "Future",      text: "What will your generation be remembered for?" },
+  { theme: "Future",      text: "If you had to teach one skill to every person alive, what would it be?" }
+];
+
+const WORDS = [
+  { theme: "Tech",     text: "Algorithm" },
+  { theme: "Tech",     text: "Notification" },
+  { theme: "Tech",     text: "Password" },
+  { theme: "Tech",     text: "Robot" },
+  { theme: "Tech",     text: "Screen time" },
+  { theme: "Tech",     text: "Drone" },
+  { theme: "Science",  text: "Gravity" },
+  { theme: "Science",  text: "Evolution" },
+  { theme: "Science",  text: "Experiment" },
+  { theme: "Science",  text: "Brain" },
+  { theme: "Science",  text: "Energy" },
+  { theme: "Space",    text: "Black hole" },
+  { theme: "Space",    text: "Astronaut" },
+  { theme: "Space",    text: "Telescope" },
+  { theme: "Space",    text: "Orbit" },
+  { theme: "Space",    text: "Moon landing" },
+  { theme: "Sports",   text: "Marathon" },
+  { theme: "Sports",   text: "Referee" },
+  { theme: "Sports",   text: "Teammate" },
+  { theme: "Sports",   text: "Injury" },
+  { theme: "Sports",   text: "Stadium" },
+  { theme: "Food",     text: "Spice" },
+  { theme: "Food",     text: "Leftovers" },
+  { theme: "Food",     text: "Street food" },
+  { theme: "Food",     text: "Breakfast" },
+  { theme: "Travel",   text: "Airport" },
+  { theme: "Travel",   text: "Suitcase" },
+  { theme: "Travel",   text: "Border" },
+  { theme: "Travel",   text: "Souvenir" },
+  { theme: "Travel",   text: "Map" },
+  { theme: "Nature",   text: "Thunderstorm" },
+  { theme: "Nature",   text: "Desert" },
+  { theme: "Nature",   text: "Sunrise" },
+  { theme: "Nature",   text: "Ocean floor" },
+  { theme: "Music",    text: "Rhythm" },
+  { theme: "Music",    text: "Silence" },
+  { theme: "Art",      text: "Graffiti" },
+  { theme: "Art",      text: "Museum" },
+  { theme: "History",  text: "Revolution" },
+  { theme: "History",  text: "Ruins" },
+  { theme: "History",  text: "Castle" },
+  { theme: "Mind",     text: "Memory" },
+  { theme: "Mind",     text: "Boredom" },
+  { theme: "Mind",     text: "Jealousy" },
+  { theme: "Mind",     text: "Curiosity" },
+  { theme: "Mind",     text: "Habit" },
+  { theme: "Work",     text: "Deadline" },
+  { theme: "Work",     text: "Salary" },
+  { theme: "Work",     text: "Retirement" },
+  { theme: "Everyday", text: "Superstition" }
+];
+
+</script>
+  <script>
+// Content files register vocabulary separately from complete, matching situations.
+window.PracticeContent = {
+  vocabulary: {},
+  situations: { home: [], restaurant: [], travel: [], everyday: [] },
+  add(set, context, terms, scenes) {
+    const target = this.situations[set];
+    for (const text of scenes) {
+      target.push({ id: `${set}-${target.length + 1}`, context, terms, text });
+    }
+  }
+};
+
+</script>
+  <script>
+PracticeContent.vocabulary.home = [
+  ['wipe down', 'Clean a surface with a cloth.', 'I wiped down the table after breakfast.'],
+  ['scrub off', 'Remove something by rubbing hard.', 'I scrubbed the dried sauce off the tray.'],
+  ['clear out', 'Remove unwanted things from a space.', 'We cleared out the cupboard to make room.'],
+  ['get rid of', 'Remove something you no longer want.', 'I need to get rid of this broken chair.'],
+  ['air out', 'Let fresh air into a room or item.', 'I opened the windows to air out the room.'],
+  ['put together', 'Assemble something from separate parts.', 'We put together the new bookshelf.'],
+  ['take apart', 'Separate something into its pieces.', 'We took apart the desk before moving it.'],
+  ['put away', 'Return something to its proper place.', 'Please put away your tools when you finish.'],
+  ['sort out', 'Organize something or solve a problem.', 'We need to sort out the bills.'],
+  ['stock up on', 'Get extra supplies for later.', 'We stocked up on groceries before the storm.'],
+  ['run out of', 'Have none of something left.', 'We have run out of laundry detergent.'],
+  ['make room for', 'Create space for someone or something.', 'I moved the boxes to make room for a desk.'],
+  ['pick up', 'Collect something or lift it from a surface.', 'I picked up the toys from the floor.'],
+  ['take out', 'Move something from inside to outside.', 'I took out the rubbish after dinner.'],
+  ['hang up', 'Put something on a hook or hanger.', 'I hung up my wet coat near the door.'],
+  ['fold up', 'Fold something into a smaller shape.', 'We folded up the spare chairs.'],
+  ['look after', 'Take care of someone or something.', 'Could you look after my plants this weekend?'],
+  ['deal with', 'Take action to handle a problem or task.', 'We need to deal with the damp cupboard.'],
+  ['set up', 'Arrange something so it is ready to use.', 'I set up a desk in the spare room.'],
+  ['turn down', 'Reduce a setting, such as volume or heat.', 'Could you turn down the music?'],
+  ['turn off', 'Stop a device or supply from operating.', 'I turned off the lights before leaving.'],
+  ['check on', 'See whether someone or something is all right.', 'I will check on the plants tomorrow.'],
+  ['keep up with', 'Continue managing tasks as they arise.', 'I struggle to keep up with the laundry.'],
+  ['give away', 'Give something to someone without charging.', 'We gave away the clothes we no longer needed.'],
+  ['put off', 'Delay doing something until later.', 'I cannot put off cleaning the spare room any longer.']
+];
+
+</script>
+  <script>
+PracticeContent.add('home', 'Cleaning up at home', ['wipe down', 'scrub off', 'put away'], [
+  'Breakfast has left sticky juice on the table and dried porridge on a bowl. The clean dishes are still on the draining board.',
+  'After baking, the worktop is dusty with flour and icing has hardened on a tray. Your baking tools are scattered nearby.',
+  'You have finished a craft project. Glue has dried on a plastic mat, the desk is dusty, and your supplies need storing.',
+  'A family dinner is over. The table is greasy, sauce is stuck to a serving dish, and clean glasses are waiting on a tray.',
+  'You have repotted some plants. Soil covers the bench, mud has dried on a plastic pot, and your gardening tools are lying outside.'
+]);
+PracticeContent.add('home', 'Making space at home', ['clear out', 'get rid of', 'make room for'], [
+  'Your wardrobe is packed with clothes you never wear. Several hangers are broken, and your winter coats have nowhere to go.',
+  'The spare room is full of old boxes. Some are damaged beyond use, and a relative needs space to stay next week.',
+  'Your kitchen drawer is jammed with unused utensils and broken gadgets. You have bought a new set of cooking tools.',
+  'The garage is crowded with abandoned projects. Some materials are unusable, and you need space for your bicycle.',
+  'A storage cupboard contains expired products and things nobody uses. You need somewhere to keep fresh towels for visitors.'
+]);
+PracticeContent.add('home', 'Freshening a room', ['air out', 'wipe down', 'put away'], [
+  'A guest room has been closed for months. The bedside table is dusty, and spare blankets are piled on the chair.',
+  'After a long study session, your room feels stuffy. There are drink marks on the desk and books covering the bed.',
+  'The living room smells of cooking. The coffee table is sticky, and board games from last night are still on the floor.',
+  'You have unpacked a room after decorating. It smells stale, the shelves are dusty, and household supplies need returning to their cupboards.',
+  'Rain kept everyone indoors all weekend. The playroom feels stuffy, the low table is grubby, and toys are scattered everywhere.'
+]);
+PracticeContent.add('home', 'Sorting household belongings', ['sort out', 'give away', 'put away'], [
+  'You have mixed together winter clothes, summer clothes, and things that no longer fit. A charity collection is coming tomorrow.',
+  'Three boxes contain books from different rooms. Some are duplicates you could donate; the rest belong on your shelves.',
+  'You have inherited a collection of kitchenware. Your neighbor wants the spare mugs, but first you need to decide what to keep.',
+  'Your children have mixed their current toys with ones they have outgrown. A younger cousin would enjoy the unused ones.',
+  'Old hobby supplies cover the dining table. A community group can use the materials you no longer need, and you want your table back.'
+]);
+PracticeContent.add('home', 'Finishing a household cleanup', ['pick up', 'take out', 'wipe down'], [
+  'After a party, paper cups are scattered on the floor, the rubbish bin is full, and the table is covered in drink rings.',
+  'You have opened several deliveries. Packaging covers the floor, the recycling box is full, and dust has settled on the hallway shelf.',
+  'After a picnic in the garden, napkins are scattered on the grass, rubbish needs carrying outside, and the patio table is sticky.',
+  'The children have finished making decorations. Paper scraps cover the floor, the wastebasket is full, and glitter is on the table.',
+  'You have cleaned a cupboard. Loose wrappers remain on the floor, a rubbish bag is ready by the door, and the empty shelves are dusty.'
+]);
+PracticeContent.add('home', 'Managing laundry', ['hang up', 'fold up', 'put away'], [
+  'The washing machine has finished. Shirts need drying on hangers, dry towels are spread over the sofa, and your drawers are empty.',
+  'You are packing away laundry before visitors arrive. Damp jackets need hanging, clean bedding needs folding, and socks need returning to drawers.',
+  'Your teenager has left clean clothes in a heap. Some shirts are still damp, while the dry T-shirts need folding and storing.',
+  'Rain interrupted laundry day. Coats need an indoor drying spot, dry sheets are lying on the bed, and clean clothes block the hallway.',
+  'You have washed the guest-room linen. A damp dressing gown needs hanging, the spare blanket needs folding, and everything needs a proper place.'
+]);
+PracticeContent.add('home', 'Preparing for a busy week', ['stock up on', 'run out of', 'put away'], [
+  'There is no laundry detergent left, and next week will be busy. A grocery delivery has also arrived and is blocking the kitchen.',
+  'You have used the last roll of kitchen paper. Several relatives are visiting for the weekend, and your latest shopping is still in bags.',
+  'There is no breakfast cereal left. You want enough groceries for a week of early starts, but the cupboard needs organizing after shopping.',
+  'The last dishwasher tablet is gone. You will be cooking for friends for several days, and yesterday’s supplies remain on the counter.',
+  'You have no bin bags left. Shops will close for a holiday, and the household supplies you already bought still need storing.'
+]);
+PracticeContent.add('home', 'Dealing with unpleasant smells', ['deal with', 'air out', 'take out'], [
+  'An old food container has made the kitchen smell unpleasant. The rubbish bag is full, and the windows have been closed all morning.',
+  'A bag of damp sports clothes has been forgotten in the hallway. Some rubbish is nearby, and fresh air would help the room.',
+  'The room smells after a gathering. Leftover food is sitting in the bin, and the closed windows are making it worse.',
+  'A cupboard smells because a rubbish bag was left inside overnight. You need to remove the source and bring in fresh air.',
+  'You return after a weekend away and notice a smell from the kitchen bin. The apartment also feels stale and needs attention.'
+]);
+PracticeContent.add('home', 'Resetting a shared space', ['clear out', 'scrub off', 'put away'], [
+  'The fridge contains forgotten leftovers, a shelf has dried jam on it, and fresh groceries are waiting to be stored.',
+  'A shared craft cupboard is full of empty containers. Paint has dried on its washable tray, and useful supplies are piled outside.',
+  'Your utility cupboard is full of empty bottles. Detergent has dried on a removable tray, and clean cloths have nowhere to go.',
+  'The outdoor storage box is full of old packaging. Mud is stuck to a plastic mat, and garden cushions need storing.',
+  'The lunchbox cupboard is full of containers without lids. Dried food is stuck to a washable shelf liner, and clean boxes need organizing.'
+]);
+PracticeContent.add('home', 'Keeping daily mess manageable', ['keep up with', 'put off', 'set up'], [
+  'Laundry keeps piling up because you delay it until Sunday. You want a simple washing routine that fits around work.',
+  'You leave all cleaning until guests announce a visit. You need a weekly schedule so everyday tasks stop becoming overwhelming.',
+  'Household paperwork is months behind because you avoid opening letters. You want a small system for dealing with new mail.',
+  'You keep postponing meal planning and cannot manage weekday shopping. You want a regular time and place to plan meals.',
+  'The shared kitchen is always untidy because everyone delays washing up. You want a manageable routine for the whole household.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('home', 'Changing a room', ['take apart', 'put together', 'make room for'], [
+  'An old desk will not fit through the doorway in one piece. A flat-pack replacement has arrived, but the room is crowded.',
+  'You are replacing a large bed with a smaller one. The old frame needs dismantling before you can assemble the new bed.',
+  'A visitor needs the spare room. A bulky shelving unit must be dismantled, and a new folding bed still needs assembling.',
+  'Your home office needs a bigger work surface. The old table is too wide to move intact, and the new desk comes in pieces.',
+  'You are creating a play area. An old cabinet must be dismantled, and a new toy-storage unit needs assembling in its place.'
+]);
+PracticeContent.add('home', 'Starting a household project', ['set up', 'put together', 'put away'], [
+  'You want a quiet reading corner. A small shelf needs assembling, a lamp needs positioning, and your tools cannot stay on the floor.',
+  'You are preparing a craft area. The table arrives in pieces, your materials need arranging, and the assembly tools need a safe storage place.',
+  'You want a workspace in the spare room. The chair needs assembling, the computer needs arranging, and packaging tools are scattered around.',
+  'You are making a garden seating area. A bench needs assembling, cushions need arranging, and tools must be stored before children come outside.',
+  'You are preparing a homework corner. A small desk needs assembling, school supplies need arranging, and the toolbox is blocking the chair.'
+]);
+PracticeContent.add('home', 'Handling shared household jobs', ['sort out', 'deal with', 'keep up with'], [
+  'Nobody knows whose turn it is to clean. Small jobs are being missed, and the shared kitchen has become difficult to manage.',
+  'Your housemates disagree about bills. Payments are getting missed, and you need an arrangement that everyone can maintain.',
+  'The household shopping list is confusing. Important supplies are repeatedly forgotten, and you want a system that is easier to manage.',
+  'Repairs are being reported in several different chats. Some have been forgotten, and you need a clear way to track outstanding problems.',
+  'Everyone assumes someone else is feeding the pet. You need to resolve the confusion and maintain a reliable daily routine.'
+]);
+PracticeContent.add('home', 'Moving furniture safely', ['take apart', 'clear out', 'set up'], [
+  'A large desk must move into the spare room. Its legs need removing, and the destination is full of boxes.',
+  'You are turning a storage room into an office. A shelving unit needs dismantling before you can empty the room and arrange a workspace.',
+  'A bed must move downstairs for a visiting relative. The frame needs dismantling, and the downstairs room is full of stored belongings.',
+  'You want the dining table in a different room. It needs dismantling to pass through the hall, and old storage boxes are in the way.',
+  'Your exercise equipment needs a dedicated room. An oversized shelf must be dismantled, and the old storage area needs emptying first.'
+]);
+PracticeContent.add('home', 'Preparing for someone to stay', ['make room for', 'hang up', 'put away'], [
+  'Your friend arrives with a suitcase and a long coat. The wardrobe is full of your clothes, and personal items cover the guest bed.',
+  'A relative is staying for a month. They need storage space and somewhere for their jackets, but your spare room is crowded.',
+  'Two guests are arriving after a rainy journey. They need room for bags and somewhere for wet coats, while your things cover the chairs.',
+  'Your sibling is moving in temporarily. Their work shirts need hanging, but the wardrobe contains your spare bedding and unused bags.',
+  'You are hosting a weekend visitor. Their formal clothes need hanging, and the drawers you offered are still full of your belongings.'
+]);
+PracticeContent.add('home', 'Looking after a home while someone is away', ['look after', 'check on', 'turn off'], [
+  'Your neighbor asks you to care for their plants. You also need to check the apartment occasionally and switch off any forgotten lights.',
+  'A friend is away for a week and asks you to care for their cat. They want daily visits and a lamp switched off each morning.',
+  'Your parents are traveling and leave you in charge of the house. They ask you to inspect it and switch off unused appliances.',
+  'You are caring for a friend’s balcony plants. They ask you to visit after the rain and stop the watering timer if it is unnecessary.',
+  'A relative asks you to care for their aquarium. You need to inspect it daily and switch off the room lights when you leave.'
+]);
+PracticeContent.add('home', 'Sharing a home considerately', ['turn down', 'deal with', 'look after'], [
+  'You are caring for a sleeping child while a housemate plays loud music. You need to handle the noise without starting an argument.',
+  'You are caring for an elderly relative who needs a quiet afternoon. The television is loud, and the household needs a solution.',
+  'You are watching a nervous pet while guests speak over loud music. The pet is upset, and you want a calmer room.',
+  'A family member recovering from illness is resting while the radio plays loudly. You are responsible for their comfort this afternoon.',
+  'You are babysitting during a video call in the next room. The speakers are too loud, and the child cannot settle.'
+]);
+PracticeContent.add('home', 'Reducing household energy use', ['turn down', 'turn off', 'keep up with'], [
+  'Your electricity bills are rising. The heating is stronger than needed, lights stay on in empty rooms, and nobody checks daily usage.',
+  'The apartment feels too warm at night. Unused devices remain on, and you want a routine that keeps energy use under control.',
+  'You share a house where the television stays loud and running after everyone leaves. You want an easy daily shutdown routine.',
+  'Your family forgets lights and uses more heating than necessary. You need a manageable way to track these habits each evening.',
+  'You work from home and leave equipment running after work. The heating is high, and you want to manage energy use more consistently.'
+]);
+PracticeContent.add('home', 'Passing on useful belongings', ['give away', 'clear out', 'pick up'], [
+  'You are emptying a cupboard of spare mugs. A neighbor wants them for free and asks when they can collect them.',
+  'You are emptying the garage and find a usable bicycle. A local family would like it if they can collect it this weekend.',
+  'Your bookshelf is overcrowded. A community group wants your unwanted books and offers to collect them on Friday.',
+  'You are emptying a room before decorating. Someone wants your spare desk for free but can only collect it after work.',
+  'Your wardrobe contains good clothes you no longer need. A friend wants them and has arranged a collection time.'
+]);
+PracticeContent.add('home', 'Finishing a repair visit', ['deal with', 'wipe down', 'put away'], [
+  'A plumber has fixed a leak but left water marks on the cabinet. The remaining mess and household tools need attention.',
+  'A repair worker has adjusted a cupboard door. Dust covers the shelf, and your toolbox is still blocking the kitchen.',
+  'A technician has moved the television to repair a connection. The stand is dusty, and spare cables are scattered nearby.',
+  'You have fixed a loose drawer handle. Marks remain on the front, and tools are spread across the table.',
+  'A curtain rail has been repaired. Dust covers the windowsill, and screws and tools are still lying on a chair.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('home', 'Organizing a busy morning', ['pick up', 'put away', 'check on'], [
+  'You are leaving for work. Toys cover the hallway, breakfast items are still out, and you want to see whether your child is ready.',
+  'The school run starts soon. Clothes are scattered across the landing, cereal boxes are on the table, and the pet needs a quick check.',
+  'Your taxi will arrive in ten minutes. Shoes block the doorway, toiletries cover the counter, and a relative may still be asleep.',
+  'You are preparing for an early appointment. Yesterday’s post is on the floor, shopping bags need storing, and your housemate needs waking.',
+  'You are leaving for a day trip. Picnic equipment is scattered around, unused food needs storing, and you need to check the plants.'
+]);
+PracticeContent.add('home', 'Preparing for a gathering', ['stock up on', 'set up', 'make room for'], [
+  'Eight friends are coming for dinner. You need extra drinks, somewhere to serve food, and space for more chairs.',
+  'You are hosting a board-game afternoon. Snacks are low, the gaming table needs preparing, and bags are occupying the seating area.',
+  'Your family is visiting for a birthday lunch. You need extra plates, a serving area, and space for a high chair.',
+  'You are arranging a neighborhood tea afternoon. Supplies are low, tables need preparing, and the entrance is crowded with furniture.',
+  'Friends are coming to watch a film. You need more snacks, the projector needs arranging, and some furniture blocks the screen.'
+]);
+PracticeContent.add('home', 'Packing up after guests leave', ['fold up', 'put away', 'take out'], [
+  'The party is over. Spare folding chairs fill the room, serving dishes need storing, and rubbish bags are waiting by the door.',
+  'Your weekend guests have left. A portable bed needs folding, clean blankets need storing, and the recycling box is full.',
+  'The garden gathering has finished. Folding tables are still outside, cushions need storing, and empty bottles need carrying out.',
+  'After a family meal, a folding table blocks the hall. The extra cutlery needs storing, and the kitchen bin is full.',
+  'Your craft group has gone home. Folding stools remain around the room, supplies need storing, and paper waste needs carrying outside.'
+]);
+PracticeContent.add('home', 'Avoiding last-minute chores', ['put off', 'keep up with', 'sort out'], [
+  'You have delayed dealing with household bills and now several are due. You need to organize them and avoid falling behind again.',
+  'You keep delaying wardrobe organization until you cannot find clean work clothes. You want a system you can maintain.',
+  'You have postponed filing important letters for months. An appointment now requires several documents that you cannot find.',
+  'You keep delaying the weekly shop and cannot manage supplies. You need to organize a list that matches what the household uses.',
+  'You avoid checking repair requests until something becomes urgent. You want to organize the list and manage small jobs regularly.'
+]);
+PracticeContent.add('home', 'Caring for household plants', ['look after', 'check on', 'make room for'], [
+  'A friend has left you several plants to care for. They need regular checks, but your sunny windowsill is already crowded.',
+  'You have brought delicate plants indoors for winter. You need to inspect them regularly and find enough space near the light.',
+  'Your neighbor asks you to care for seedlings while they travel. You need a suitable spot and a plan for regular checks.',
+  'A relative gives you a large houseplant. It needs attention and occasional checks, but there is no space beside your existing plants.',
+  'You are caring for plants from an office during a holiday closure. You need to arrange enough space and check their condition.'
+]);
+PracticeContent.add('home', 'Handling a smaller living space', ['fold up', 'make room for', 'put away'], [
+  'You work in a small living room. A folding desk occupies the dining area, and a visitor needs space to sit.',
+  'Your exercise mat and equipment cover the bedroom floor. You need to fold the mat and free space for getting dressed.',
+  'A portable drying rack blocks your kitchen. The laundry is dry, and you need space to prepare dinner.',
+  'Your child has finished playing in a folding tent. The toys are outside it, and the family needs the living room back.',
+  'A folding guest bed occupies your home office. Your visitor has left, and you need room for tomorrow’s work.'
+]);
+PracticeContent.add('home', 'Replacing worn-out household items', ['get rid of', 'put together', 'take out'], [
+  'A damaged chair cannot be repaired. A new chair has arrived in pieces, and the old one needs moving outside for collection.',
+  'Your broken shelf is being replaced by a flat-pack unit. The unusable pieces need disposing of and carrying out of the room.',
+  'An old storage box has sharp broken edges. Its replacement needs assembling, and the damaged box cannot remain indoors.',
+  'A broken shoe rack is blocking the hallway. A replacement has arrived in parts, and the old rack needs carrying to the collection point.',
+  'A damaged side table needs replacing. The new one requires assembly, and the old one must be removed for an arranged collection.'
+]);
+PracticeContent.add('home', 'Making a shared room comfortable', ['air out', 'turn down', 'set up'], [
+  'Friends are coming for a quiet film night. The room is stuffy, the speakers are loud, and the screen is not ready.',
+  'You are preparing a room for a study group. It needs fresh air, quieter background music, and a suitable table arrangement.',
+  'A guest will use the spare room for a video interview. It is stuffy, the heater is too high, and the desk needs arranging.',
+  'You are preparing a family reading afternoon. The room feels stale, the television is loud, and chairs need arranging near the books.',
+  'A relative wants to rest after a journey. The bedroom needs fresh air, the radio is loud, and the spare bed is not ready.'
+]);
+PracticeContent.add('home', 'Sharing everyday responsibilities', ['look after', 'keep up with', 'sort out'], [
+  'You and your sibling are caring for a relative this week. Daily chores are falling behind because nobody has agreed who does what.',
+  'Your housemate is away, leaving you to care for a pet. You also need a workable plan for the extra household jobs.',
+  'You are caring for a child during a busy workweek. Laundry and meals are getting missed, and the family needs a clearer arrangement.',
+  'Two households are sharing pet care during the holidays. Daily tasks are being duplicated or missed, so the schedule needs organizing.',
+  'You are caring for your parents’ house while they move. Regular cleaning is falling behind, and you need to organize the remaining jobs.'
+]);
+PracticeContent.add('home', 'Getting ready to leave home', ['check on', 'turn off', 'put away'], [
+  'You are leaving for a weekend away. Food is still on the counter, several lights are on, and you want to inspect the rooms.',
+  'You are the last person leaving after dinner. Clean dishes are still out, the television is running, and the house needs a final check.',
+  'You are leaving a holiday cottage. Household equipment needs storing, lights are on, and you want to check every room before departing.',
+  'Your family is going out for the day. Craft supplies are scattered around, a fan is running in an empty room, and the pet needs checking.',
+  'You are finishing work in your home office. Papers need storing, unused equipment is running, and you want to check the rest of the house.'
+]);
+
+</script>
+  <script>
+PracticeContent.vocabulary.restaurant = [
+  ['wipe down', 'Clean a surface with a cloth.', 'I wiped down the bar before opening.'],
+  ['scrub off', 'Remove something by rubbing hard.', 'I scrubbed the sauce off the serving tray.'],
+  ['clear away', 'Remove things that are no longer needed.', 'We cleared away the empty plates.'],
+  ['put away', 'Place something in its proper storage space.', 'I put away the clean glasses.'],
+  ['stock up on', 'Get extra supplies for later.', 'We need to stock up on napkins.'],
+  ['run out of', 'Have none of something left.', 'We have run out of orange juice.'],
+  ['sort out', 'Organize something or solve a problem.', 'I will sort out the mistake on your bill.'],
+  ['take over', 'Start doing a job someone else was doing.', 'Can you take over at the bar?'],
+  ['fill in for', 'Temporarily do someone else’s job.', 'I am filling in for the host today.'],
+  ['hand over', 'Pass responsibility or information to someone.', 'I will hand over the bookings to the next shift.'],
+  ['check on', 'See whether someone needs help or something is ready.', 'Could you check on table four?'],
+  ['follow up on', 'Check the progress of an earlier request.', 'I will follow up on your missing order.'],
+  ['bring out', 'Carry something out to customers.', 'I will bring out the main courses shortly.'],
+  ['send back', 'Return something because it is not suitable.', 'The customer sent back the cold soup.'],
+  ['heat up', 'Make something warmer.', 'The kitchen will heat up the soup.'],
+  ['cut down on', 'Reduce the amount of something.', 'We are trying to cut down on food waste.'],
+  ['throw away', 'Dispose of something you do not need.', 'We must throw away the damaged packaging.'],
+  ['set up', 'Arrange something so it is ready.', 'We need to set up the terrace for lunch.'],
+  ['clean up', 'Make a place clean and tidy.', 'We cleaned up the spill before seating anyone.'],
+  ['take away', 'Remove something from a place.', 'Could you take away the empty bottles?'],
+  ['keep an eye on', 'Watch something carefully for a while.', 'Please keep an eye on the entrance.'],
+  ['in advance', 'Before an event or action happens.', 'Please book the private room in advance.'],
+  ['on the house', 'Provided free by the business.', 'The manager offered dessert on the house.'],
+  ['instead', 'In place of another option.', 'We can offer apple juice instead.'],
+  ['make sure', 'Check or act so something is certain.', 'Please make sure the bill has the right table number.']
+];
+
+</script>
+  <script>
+PracticeContent.add('restaurant', 'Reducing unnecessary waste', ['cut down on', 'throw away', 'make sure'], [
+  'Staff are printing duplicate receipts that immediately go in the bin. You want to reduce paper waste and check the printer settings.',
+  'Too many disposable menus are printed each morning and discarded unused. You want to reduce waste while ensuring enough are available.',
+  'Single-use supplies are being opened before they are needed and then discarded. You want a less wasteful routine that still follows workplace rules.',
+  'Damaged packaging is being discarded every delivery day. You want to reduce damage by checking how boxes are stored.',
+  'The team prepares far more display labels than needed and discards the extras. You want to reduce waste and verify the daily requirements.'
+]);
+PracticeContent.add('restaurant', 'Closing the restaurant', ['clear away', 'clean up', 'put away'], [
+  'The final customers have left. Used dishes remain on the tables, a spill is on the floor, and clean equipment needs storing.',
+  'A private event has ended. Glasses fill the room, crumbs cover the serving area, and reusable decorations need returning to storage.',
+  'The terrace is closing. Empty plates remain outside, a drink has spilled, and cushions need bringing into storage.',
+  'Breakfast service is finished. Used cups remain near the buffet, the area is messy, and clean serving equipment needs storing.',
+  'A takeaway promotion is over. Empty packaging covers the counter, the area needs cleaning, and unused displays need storing.'
+]);
+PracticeContent.add('restaurant', 'Dealing with a spill', ['clean up', 'keep an eye on', 'make sure'], [
+  'A drink has spilled near the entrance. Someone needs to watch the area while it is cleaned and check it is safe before reopening it.',
+  'Water has spilled beside the takeaway queue. You need to manage the cleanup and keep customers away until the floor is ready.',
+  'A jug has tipped over near a table. You need to watch for passing guests while the area is cleaned and checked.',
+  'Rainwater has collected just inside the terrace door. You need to organize cleanup and keep watch until the area is safe.',
+  'A container leaked beside the service station. You need to keep people away while the mess is cleaned and the floor is checked.'
+]);
+PracticeContent.add('restaurant', 'Restoring a storage area', ['sort out', 'put away', 'throw away'], [
+  'A delivery has mixed together different sizes of containers. Good stock needs organizing and storing, while torn packaging needs disposing of.',
+  'The stationery cupboard contains loose pens, spare receipt rolls, and empty boxes. You need to organize useful items and dispose of rubbish.',
+  'Clean tablecloths are mixed with damaged wrapping. You need to organize the linen, store it properly, and discard the packaging.',
+  'A shelf holds mixed decorations and broken cardboard boxes. You need to organize what is usable and remove the waste.',
+  'The takeaway supplies are in the wrong cupboards. Useful items need sorting and storing, while empty cartons need disposing of.'
+]);
+PracticeContent.add('restaurant', 'Preparing outdoor service', ['set up', 'wipe down', 'make sure'], [
+  'The terrace opens after a windy night. Tables need cleaning and arranging, and you need to check that every chair is stable.',
+  'A garden lunch is booked. The furniture is dusty, tables need arranging, and the team must check the walkway is clear.',
+  'You are opening a pavement seating area. Tables need cleaning and positioning, and you must check the agreed space is not blocked.',
+  'The rooftop dining area has been closed all week. Furniture needs cleaning and arranging, and you need to check the setup before guests arrive.',
+  'A courtyard event starts soon. Tables are dusty, the layout is unfinished, and the final seating numbers need checking.'
+]);
+PracticeContent.add('restaurant', 'Following up with suppliers', ['run out of', 'follow up on', 'stock up on'], [
+  'There are no receipt rolls left. A delayed order was supposed to arrive yesterday, and you need extra stock for the weekend.',
+  'The restaurant has used its last takeaway bags. A supplier has not delivered, and next week’s promotion will require more.',
+  'The last box of napkins is empty. Your expected delivery is missing, and a large booking makes extra supplies urgent.',
+  'There are no spare menu sleeves left. An earlier order has not arrived, and you need more before replacing the menus.',
+  'The bar has used its last drink stirrers. A promised delivery is late, and the upcoming event will require extra stock.'
+]);
+PracticeContent.add('restaurant', 'Handling returns from a table', ['send back', 'instead', 'make sure'], [
+  'A customer ordered still water but received sparkling. They want the bottle returned and replaced with the correct choice.',
+  'A diner ordered rice but received potatoes. They want the side returned and the order checked before a replacement arrives.',
+  'A guest requested tea but received coffee. They want the drink returned and the correct choice confirmed.',
+  'A customer ordered a small portion but received a large one. They want it returned and the smaller option provided.',
+  'A diner ordered a plain dessert but received one with a topping they did not request. They want a replacement that matches their order.'
+]);
+PracticeContent.add('restaurant', 'Clearing equipment after an event', ['take away', 'wipe down', 'put away'], [
+  'A coffee station is no longer needed. Empty dispensers need removing, the counter needs cleaning, and reusable cups need storing.',
+  'The buffet has closed. Empty serving stands need removing, the table needs cleaning, and clean utensils need storing.',
+  'A tasting event has finished. Display trays need removing, the bar needs cleaning, and sample glasses need returning to storage.',
+  'A welcome-drinks table is no longer in use. Empty containers need removing, the surface needs cleaning, and spare items need storing.',
+  'The dessert display is finished for the night. Empty stands need removing, the counter needs cleaning, and the clean covers need storing.'
+]);
+PracticeContent.add('restaurant', 'Managing a service delay', ['follow up on', 'instead', 'on the house'], [
+  'A dessert is delayed. You need an update from the kitchen, and the manager allows a free alternative if the customer prefers.',
+  'A coffee machine problem has delayed an order. You need a progress update, and the manager authorizes a free different drink.',
+  'A starter is unavailable after a long wait. You need to check the request, and the manager offers a different starter free.',
+  'A special drink is taking much longer than expected. You need to check progress, and the manager approves a free substitute.',
+  'A bakery delivery is late. A waiting customer wants an update, and the manager permits a different breakfast item free of charge.'
+]);
+PracticeContent.add('restaurant', 'Planning more efficient service', ['in advance', 'cut down on', 'set up'], [
+  'Guests queue for menus at every event. You want to prepare information before arrival and arrange a display that reduces waiting.',
+  'Staff repeatedly search for spare cutlery during large bookings. You want to prepare earlier and arrange a station that reduces unnecessary trips.',
+  'The team wastes time moving tables after guests arrive. You want to agree the layout beforehand and prepare it earlier.',
+  'Customers wait while staff look for collection orders. You want to prepare labels beforehand and arrange a clearer collection area.',
+  'Servers make repeated journeys for water during conferences. You want to plan beforehand and arrange a station that reduces those trips.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('restaurant', 'Getting a table ready', ['clear away', 'wipe down', 'set up'], [
+  'A group has just left, and another booking arrives in ten minutes. Used plates remain on the sticky table, which needs fresh settings.',
+  'A family has finished breakfast. Empty dishes and crumbs cover the table, and the next guests need space for a high chair.',
+  'A meeting has ended in the private room. Cups remain on the table, there are coffee marks, and a lunch booking is arriving.',
+  'Customers have left the terrace. Empty glasses and spilled drinks remain, and the tables need preparing for the evening service.',
+  'A large party has gone home. Their dishes are still out, the joined tables are sticky, and tomorrow’s layout needs preparing.'
+]);
+PracticeContent.add('restaurant', 'Restoring serving equipment', ['scrub off', 'wipe down', 'put away'], [
+  'Sauce has dried on a serving tray. The shelf where it belongs is dusty, and the clean equipment needs storing before opening.',
+  'Jam has hardened on a breakfast display stand. Its storage surface needs cleaning, and the stand is blocking the preparation area.',
+  'A reusable menu holder has a stubborn sticker on it. The display counter needs cleaning before the holder can return to storage.',
+  'Dried batter is stuck to a washable display tray. The nearby counter is messy, and clean trays need returning to their cupboard.',
+  'A delivery left sticky labels on washable containers. The storage bench needs cleaning before the containers can be organized on the shelves.'
+]);
+PracticeContent.add('restaurant', 'Handling unavailable items', ['run out of', 'instead', 'stock up on'], [
+  'The last orange juice has been served, and a customer asks for more. You have apple juice, but tomorrow’s breakfast will also be busy.',
+  'There are no paper napkins left for takeaway orders. You have another suitable option, and a large event is booked for the weekend.',
+  'The bar has used its last lemons. Limes are available, and the manager expects a busy evening tomorrow.',
+  'The café has no oat milk left. Another milk is available if it suits the customer, and many regulars usually request oat milk.',
+  'The dessert special has sold out. Another dessert is available, and you need to discuss extra supplies before the next busy service.'
+]);
+PracticeContent.add('restaurant', 'Correcting an order', ['sort out', 'make sure', 'follow up on'], [
+  'A customer ordered a main course that never arrived. Their table number was entered incorrectly, and they want an update.',
+  'Two tables received each other’s drinks. You need to resolve the mix-up, verify the correct orders, and check that replacements arrive.',
+  'A takeaway customer paid for three meals but received two. You need to resolve the missing item and confirm it reaches them.',
+  'A customer requested a side dish that was left off the order. They have already asked once and are waiting for a response.',
+  'A group’s desserts were sent to the wrong table. You need to correct the mistake and confirm everyone receives what they ordered.'
+]);
+PracticeContent.add('restaurant', 'Responding to a cold dish', ['send back', 'heat up', 'bring out'], [
+  'A customer says their soup is cold. They want it returned to the kitchen, warmed appropriately, and delivered when ready.',
+  'A customer’s gravy arrived cold. They ask for it to go back to the kitchen and return hot with their meal.',
+  'A customer expected warm bread, but it arrived cold. They ask for the kitchen to warm it and return it to the table.',
+  'A diner says their hot dessert is cold in the middle. They ask for the kitchen to correct it and serve it again.',
+  'A guest’s sauce has cooled while they waited for their meal. They ask for it to be returned, warmed, and delivered again.'
+]);
+PracticeContent.add('restaurant', 'Looking after waiting customers', ['check on', 'follow up on', 'bring out'], [
+  'A table has waited twenty minutes for starters. You need to see how they are doing, ask the kitchen for progress, and serve the food.',
+  'A family’s child meal has not arrived. You need to speak to the table, check the earlier request, and deliver it when ready.',
+  'A customer ordered coffee before dessert, but neither has appeared. You need to check their needs and chase the outstanding order.',
+  'A group is waiting for its last main course. You need to speak to them, ask about the delay, and serve the missing dish.',
+  'A diner requested extra bread some time ago. You need to see whether they still need it and arrange for it to reach the table.'
+]);
+PracticeContent.add('restaurant', 'Responding to a service mistake', ['sort out', 'on the house', 'make sure'], [
+  'A customer’s order was forgotten. The manager authorizes a free coffee while you resolve the delay and verify the corrected order.',
+  'A booking mix-up kept a family waiting. The manager offers free soft drinks, and you need to resolve the seating problem.',
+  'A table was charged for an extra dessert. The manager authorizes a free dessert next time while you correct and check the bill.',
+  'A delayed takeaway order inconvenienced a regular customer. The manager approves a free drink, and you need to confirm the order is complete.',
+  'A table received the wrong birthday message. The manager authorizes a free dessert while you arrange and verify the correct message.'
+]);
+PracticeContent.add('restaurant', 'Serving food at the right time', ['make sure', 'bring out', 'clear away'], [
+  'The main courses are ready, but starter plates remain on the table. You need to check the table is ready before serving.',
+  'A birthday dessert is ready, but used dinner plates are still out. You need to confirm the guest is seated before serving it.',
+  'A group has finished its mains. Dessert is ready, but the table is crowded with used dishes and the guests need room.',
+  'A customer has ordered coffee after lunch. Their plates are still on the table, and you need to check they are ready for the drinks.',
+  'A sharing platter is ready for a large table. Empty dishes occupy the center, and you need to confirm there is enough space.'
+]);
+PracticeContent.add('restaurant', 'Helping with changed preferences', ['instead', 'make sure', 'sort out'], [
+  'A customer changes their mind after ordering tea and wants coffee. You need to correct the order and check which drink they prefer.',
+  'A guest no longer wants the terrace table and prefers indoors. You need to arrange the change and confirm enough seats are available.',
+  'A diner asks for rice rather than potatoes before preparation starts. You need to arrange the change and confirm the kitchen received it.',
+  'A group wants separate bills rather than one shared bill. You need to resolve the payment arrangement and verify each person’s items.',
+  'A customer wants a takeaway meal rather than eating in. You need to arrange packaging and confirm the order is still correct.'
+]);
+PracticeContent.add('restaurant', 'Keeping the dining area comfortable', ['keep an eye on', 'check on', 'take away'], [
+  'A busy family table is collecting empty dishes. You need to watch for their next request, see whether they need help, and remove the empties.',
+  'A large group has many empty bottles around its table. You need to watch the area, check their needs, and remove the bottles.',
+  'Several terrace tables have finished drinks. You need to watch for new requests, speak to guests, and remove unused glasses.',
+  'A customer is working at a small table crowded with empty cups. You need to check their needs and remove what they no longer want.',
+  'An elderly couple has finished most of its meal. You need to stay attentive, ask whether they need anything, and remove unwanted plates.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('restaurant', 'Changing shifts', ['take over', 'hand over', 'make sure'], [
+  'Your shift ends during a busy service. A colleague will replace you, but they need the table notes and details of unpaid bills.',
+  'You are leaving the reception desk. The next host needs to know which guests have arrived and which bookings are still outstanding.',
+  'The bar changes staff at six. Your replacement needs the open tabs and details of drinks that have not yet been served.',
+  'You finish work before a private event starts. The next supervisor needs your checklist and confirmation of the agreed room layout.',
+  'You are leaving the takeaway counter. A colleague needs the pending orders and must verify which customers have already paid.'
+]);
+PracticeContent.add('restaurant', 'Covering an absent coworker', ['fill in for', 'take over', 'keep an eye on'], [
+  'The host is unexpectedly absent. You are asked to cover their role, manage the booking desk, and watch the entrance for arrivals.',
+  'A bar worker calls in sick. You must cover their position, manage their orders, and watch for customers waiting at the counter.',
+  'The takeaway cashier is delayed. You are asked to cover temporarily, handle the queue, and watch for delivery drivers.',
+  'A terrace server must leave early. You will cover their role, manage their tables, and watch for guests needing assistance.',
+  'The breakfast supervisor cannot attend. You are asked to cover their position, coordinate service, and watch the buffet area.'
+]);
+PracticeContent.add('restaurant', 'Preparing coworkers for a handover', ['hand over', 'follow up on', 'check on'], [
+  'You are leaving while a table waits for a replacement dish. Your colleague needs the details and must check both the order and the guests.',
+  'A customer has asked for a missing receipt. You must pass the request to the next shift and ask them to check progress.',
+  'A group is waiting for a late delivery of celebration decorations. You need to pass the details on and arrange a progress check.',
+  'A table has reported a wobbly chair, and someone has requested a replacement. The next server needs to check that the issue is resolved.',
+  'A guest is waiting for the manager about a booking error. You need to pass on the message and ensure the guest receives an update.'
+]);
+PracticeContent.add('restaurant', 'Planning extra staff coverage', ['in advance', 'fill in for', 'sort out'], [
+  'A coworker has a family appointment next Friday. You need to arrange cover before the busy shift rather than leave it until the day.',
+  'A colleague has booked annual leave during a festival. You need to organize a replacement early so the rota stays workable.',
+  'The regular host will attend training next week. You need to agree beforehand who will cover the desk.',
+  'A bar worker needs a day off for an exam. You need to settle the cover arrangement before the weekend schedule is published.',
+  'The takeaway supervisor will be unavailable for a morning. You need to arrange a temporary replacement before orders begin.'
+]);
+PracticeContent.add('restaurant', 'Preparing for a large booking', ['in advance', 'set up', 'make sure'], [
+  'A group of twenty has reserved dinner. You need to confirm the seating beforehand and prepare enough places for everyone.',
+  'A customer has booked a quiet anniversary meal. You need to confirm the request early and prepare the agreed table.',
+  'A school group is coming for lunch. You need to confirm the numbers beforehand and prepare the room with enough seats.',
+  'A business team has reserved the private room. You need to confirm their layout early and prepare the space correctly.',
+  'A family has requested space for two high chairs. You need to confirm this before arrival and arrange the table accordingly.'
+]);
+PracticeContent.add('restaurant', 'Organizing supplies before service', ['stock up on', 'put away', 'make sure'], [
+  'A weekend event will use extra napkins. A delivery has arrived, and you need to store it while checking the quantities.',
+  'Breakfast bookings are high next week. You need extra coffee supplies and must check and store the order when it arrives.',
+  'A festival will increase takeaway orders. You need more containers, an organized storage area, and confirmation of the correct sizes.',
+  'The bar expects a busy holiday. You need extra soft drinks and must check and store the delivery before service.',
+  'A conference will bring many lunch customers. You need more paper towels and must check that the delivered stock matches the order.'
+]);
+PracticeContent.add('restaurant', 'Managing a problem during a rush', ['take over', 'sort out', 'keep an eye on'], [
+  'The cashier needs to resolve a payment error. You can manage the waiting queue while watching for customers who need immediate help.',
+  'The host needs to fix a booking mix-up. You can manage the entrance while watching the tables that are about to become available.',
+  'A server must resolve a missing order. You can manage their other tables while watching for food ready to serve.',
+  'The bar worker needs to correct an open tab. You can handle incoming orders while watching drinks waiting for collection.',
+  'The supervisor needs to resolve a delivery problem. You can manage the front desk while watching for the arriving supplier.'
+]);
+PracticeContent.add('restaurant', 'Keeping the team informed', ['make sure', 'hand over', 'follow up on'], [
+  'A supplier promised replacement stock tomorrow. You need to pass the message to the next shift and verify someone will check the delivery.',
+  'A guest left a message about a booking change. You need to pass it to the host and confirm it receives a response.',
+  'Maintenance has promised to repair a table. You need to pass the details on and verify someone checks the work before using it.',
+  'A customer requested an emailed receipt. You need to pass the correct details to the office and confirm the request is completed.',
+  'A regular guest wants to discuss a future event. You need to pass their request to the manager and verify they receive a reply.'
+]);
+PracticeContent.add('restaurant', 'Preparing a temporary service area', ['set up', 'take over', 'put away'], [
+  'The main counter is being repaired. You need a temporary payment desk, someone to manage it, and unused equipment moved into storage.',
+  'A garden event needs a separate drinks station. You must prepare it, arrange who will manage it, and store equipment not being used.',
+  'A private party needs a separate welcome desk. You must prepare the area, arrange coverage, and store the normal display materials.',
+  'A busy takeaway evening needs an extra collection point. You must prepare it, assign someone to manage it, and store spare furniture.',
+  'A breakfast event needs a second coffee station. You must prepare it, arrange a responsible colleague, and store unused serving items.'
+]);
+PracticeContent.add('restaurant', 'Supporting a new coworker', ['fill in for', 'make sure', 'check on'], [
+  'A new server is covering a colleague’s section. You need to confirm they understand the table numbers and see how they are managing.',
+  'A trainee is covering the reception desk. You need to verify they know the booking system and visit them during the rush.',
+  'A new colleague is covering takeaway collections. You need to confirm they know the procedure and check whether they need help.',
+  'A trainee is covering a bar break. You need to verify which tasks they can handle and see how they are doing.',
+  'A new staff member is covering the terrace. You need to confirm they understand the area and check their progress.'
+]);
+
+</script>
+  <script>
+PracticeContent.vocabulary.travel = [
+  ['check in', 'Register your arrival at a hotel or for a flight.', 'We can check in at the hotel after three.'],
+  ['check out', 'Finish a hotel stay and return the room key.', 'We need to check out before eleven.'],
+  ['find out', 'Learn or discover information.', 'I will find out when the last train leaves.'],
+  ['get around', 'Travel from place to place within an area.', 'We can get around the city by tram.'],
+  ['pick up', 'Collect a person or item.', 'We need to pick up our bags at the station.'],
+  ['drop off', 'Leave someone or something at a place.', 'The driver can drop us off near the entrance.'],
+  ['set off', 'Begin a journey.', 'We should set off early to avoid traffic.'],
+  ['get on', 'Enter a bus, train, plane, or boat.', 'We got on the bus near the museum.'],
+  ['get off', 'Leave a bus, train, plane, or boat.', 'We need to get off at the next stop.'],
+  ['look for', 'Try to find something.', 'We are looking for the airport bus stop.'],
+  ['look around', 'Explore a place to see what is there.', 'We have time to look around the old town.'],
+  ['book ahead', 'Reserve something before you need it.', 'We should book ahead because it is a holiday weekend.'],
+  ['sort out', 'Resolve a problem or arrange something.', 'Reception helped us sort out our booking.'],
+  ['put off', 'Delay a plan until later.', 'We put off the boat trip because of the rain.'],
+  ['run out of', 'Have none of something left.', 'We have run out of cash for the bus.'],
+  ['keep an eye on', 'Watch something carefully.', 'Could you keep an eye on my bag?'],
+  ['make it', 'Arrive in time or manage to attend.', 'We might still make it to the last train.'],
+  ['in advance', 'Before something happens.', 'Buy your tickets in advance.'],
+  ['instead', 'In place of another choice.', 'The museum is closed, so let’s visit the gardens instead.'],
+  ['on the way', 'During a journey to somewhere.', 'We can stop for lunch on the way.'],
+  ['go back', 'Return to a place.', 'We need to go back to the hotel for our tickets.'],
+  ['meet up', 'Meet someone by arrangement.', 'We will meet up outside the station.'],
+  ['take a break', 'Stop an activity briefly to rest.', 'Let’s take a break before the next climb.'],
+  ['get back', 'Return to a place after being away.', 'We should get back before the buses stop.'],
+  ['stick to', 'Continue following a plan or limit.', 'We need to stick to our travel budget.']
+];
+
+</script>
+  <script>
+PracticeContent.add('travel', 'Arriving at accommodation', ['check in', 'find out', 'sort out'], [
+  'You reach your hotel, but the booking lists the wrong room type. You need to register and learn what can be done.',
+  'You arrive at a guesthouse earlier than expected. Your room is not ready, and you need to arrange registration and luggage storage.',
+  'Your hotel reservation shows the wrong number of guests. You need to resolve it while registering and learn which room is available.',
+  'You reach a hostel after reception hours. You need to learn the arrival procedure and resolve access to your booked bed.',
+  'Your hotel cannot immediately find your booking. You need to resolve the reservation and learn when you can register.'
+]);
+PracticeContent.add('travel', 'Leaving accommodation', ['check out', 'pick up', 'set off'], [
+  'You must leave your hotel room by eleven. Your luggage is in storage, and your coach departs from the station shortly afterward.',
+  'Your guesthouse stay ends this morning. You need to return the key, collect a bag from reception, and begin your onward journey.',
+  'You are leaving a resort for the airport. You need to finish the departure formalities and collect your stored luggage before traveling.',
+  'Your hostel stay is over. You need to return your key, collect your belongings from the locker area, and leave for the train.',
+  'You are moving to another town today. You need to finish your hotel stay and collect a parcel at reception before leaving.'
+]);
+PracticeContent.add('travel', 'Planning a late arrival', ['book ahead', 'in advance', 'check in'], [
+  'Your flight lands after midnight. You need to reserve a room and confirm the late-arrival procedure before traveling.',
+  'A concert ends late, and you want a room nearby. You need to reserve early and arrange how to register after the show.',
+  'Your overnight coach reaches town before dawn. You need to book accommodation and clarify the arrival arrangements beforehand.',
+  'You are driving a long distance and may arrive after reception closes. You need a reservation and an agreed arrival plan.',
+  'A train connection may bring you to the hotel very late. You need to reserve a room and arrange late registration beforehand.'
+]);
+PracticeContent.add('travel', 'Solving a room problem', ['sort out', 'find out', 'instead'], [
+  'Your room is beside a noisy lift. You want to learn whether a quieter room is available and arrange a suitable replacement.',
+  'The room you booked has twin beds rather than the double bed you requested. You want to learn the available alternatives.',
+  'Your guesthouse room has no desk, although you need to work. You want to learn whether another room or workspace is available.',
+  'Your room is on a floor you cannot comfortably reach with luggage. You want to learn whether a more accessible option is available.',
+  'The hotel gave you a room facing a busy road. You want to learn whether another room could solve the noise problem.'
+]);
+PracticeContent.add('travel', 'Using a hotel as a base', ['get around', 'find out', 'get back'], [
+  'Your hotel is outside the center. You need to learn local transport options and how to return after dinner.',
+  'You are staying near a small port. You need to learn how to visit nearby areas and return before the final connection.',
+  'Your guesthouse is in a village. You need to learn how to explore without a car and return in the evening.',
+  'Your hostel is near several tram routes. You need to learn which ones are useful and how to return after a late event.',
+  'Your apartment is on the edge of a resort. You need to learn transport options and how to return after a day out.'
+]);
+PracticeContent.add('travel', 'Changing accommodation plans', ['put off', 'sort out', 'book ahead'], [
+  'A delayed journey means you must postpone your hotel arrival. You need to resolve the current booking and reserve the next stop early.',
+  'Bad weather means delaying your next destination. You need to resolve tonight’s accommodation and reserve a room for the revised journey.',
+  'A friend cannot travel until tomorrow. You need to postpone the shared stay, resolve the booking, and reserve the revised dates.',
+  'Your tour dates have changed. You need to delay the next hotel stay, resolve the existing reservation, and secure the new dates.',
+  'A train strike changes your route. You need to postpone one overnight stop and arrange accommodation for the updated plan.'
+]);
+PracticeContent.add('travel', 'Managing luggage between stays', ['drop off', 'pick up', 'check out'], [
+  'Your train leaves hours after you must leave the room. Reception can store your bags until you return to collect them.',
+  'You want one last museum visit after finishing your hotel stay. You need somewhere to leave luggage and collect it afterward.',
+  'Your next accommodation is not ready when your current stay ends. You need temporary bag storage and a collection plan.',
+  'You are leaving the hotel before a short walking tour. You need to leave your bags safely and collect them before the coach.',
+  'Your airport transfer is in the evening, but your room must be vacated in the morning. You need a luggage arrangement for the day.'
+]);
+PracticeContent.add('travel', 'Returning for forgotten belongings', ['go back', 'pick up', 'make it'], [
+  'You reach the bus stop and realize your passport is at the hotel. You need to return, collect it, and still catch your coach.',
+  'Your concert tickets are in your room. You need to return for them and decide whether you can reach the venue in time.',
+  'You left your phone charger at the guesthouse. You want to collect it before continuing to the station for your departure.',
+  'A friend left their wallet at reception. You need to return for it and work out whether you can still join your tour.',
+  'Your train pass is in the hotel safe. You need to collect it and decide whether there is enough time before departure.'
+]);
+PracticeContent.add('travel', 'Coordinating a shared stay', ['meet up', 'check in', 'keep an eye on'], [
+  'Your friends arrive separately at the hotel. You need to meet in the lobby while someone watches the bags during registration.',
+  'Your group reaches a busy hostel. You need to gather everyone before registering and arrange who watches the luggage.',
+  'You are sharing an apartment booking with relatives. You need to meet at reception and watch everyone’s bags during the arrival process.',
+  'Two friends arrive ahead of the rest of your group. You need a meeting plan and someone to watch the bags while you register.',
+  'Your tour group arrives at a guesthouse together. You need to gather the group and keep the luggage attended during registration.'
+]);
+PracticeContent.add('travel', 'Choosing a place to stay', ['look for', 'book ahead', 'stick to'], [
+  'You want a quiet room near public transport during a festival. You need to search early and stay within your budget.',
+  'Your family needs accommodation with enough beds for a school holiday. You need to search and reserve before prices exceed your limit.',
+  'You want a guesthouse near a walking route. Rooms are limited, so you need to search early and respect your spending limit.',
+  'You need a room near a conference venue. You want to reserve before it fills up without exceeding the agreed budget.',
+  'You are planning a weekend in a popular seaside town. You need to search early and reserve something within your budget.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('travel', 'Adapting a day out', ['put off', 'instead', 'look around'], [
+  'Rain makes your planned boat trip unpleasant. You could delay it and explore the indoor market today.',
+  'A mountain viewpoint is hidden by fog. You could delay that visit and explore the old town today.',
+  'Your friend is too tired for a long hike. You could delay it and explore the small shops near your hotel.',
+  'Strong wind disrupts your beach plans. You could delay the beach visit and explore a local gallery.',
+  'Your planned garden visit would be uncomfortable in the midday heat. You could delay it and explore a covered shopping area.'
+]);
+PracticeContent.add('travel', 'Making time to rest', ['take a break', 'look around', 'get back'], [
+  'You have walked all morning in a new city. You want a rest and a short look at the market before returning to the hotel.',
+  'Your group is tired after a museum visit. You want a rest and a brief look at nearby shops before returning for dinner.',
+  'You have reached a village halfway through a day trip. You want to rest and explore briefly before returning to your base.',
+  'A long station transfer has tired everyone out. You want to rest and explore the square before returning to collect your luggage.',
+  'You have spent the morning at a festival. You want a rest and a look at the quieter stalls before returning to your guesthouse.'
+]);
+PracticeContent.add('travel', 'Managing a limited travel budget', ['stick to', 'instead', 'find out'], [
+  'An expensive tour would exceed your budget. You need to learn about a cheaper alternative that covers the places you want to see.',
+  'Restaurant meals are costing more than expected. You need to learn about cheaper options and keep the rest of the trip affordable.',
+  'Taxi fares are using up your daily allowance. You need to learn whether a transit pass would be a better option.',
+  'A famous attraction costs more than you planned. You need information about a less expensive alternative nearby.',
+  'Your planned evening activity is too expensive. You need to learn about a free event and keep to your spending limit.'
+]);
+PracticeContent.add('travel', 'Finding something you need', ['look for', 'find out', 'on the way'], [
+  'You need a phone charger before your train journey. You want to learn whether there is a suitable shop along the route to the station.',
+  'Your friend needs a raincoat before the tour. You want to learn where to buy one during the journey to the meeting point.',
+  'You need a reusable water bottle before a long day out. You want to find a shop along your planned route.',
+  'You need a printed copy of a booking document. You want to learn where you can print it before reaching the terminal.',
+  'A bag strap has broken. You want to find a replacement bag at a shop along the route to your next destination.'
+]);
+PracticeContent.add('travel', 'Handling missing supplies', ['run out of', 'look for', 'instead'], [
+  'Your phone has no battery power left, and you cannot use the map. You need a place to charge it or another way to navigate.',
+  'You have no cash left for a cash-only bus. You need an ATM or another way to reach your destination.',
+  'Your mobile data has finished during a city visit. You need a Wi-Fi connection or another source of directions.',
+  'Your travel notebook has no blank pages left. You need a replacement or another way to record important information.',
+  'Your camera has no storage space left. You need somewhere to save the photos or another device to use today.'
+]);
+PracticeContent.add('travel', 'Arranging a day trip', ['book ahead', 'set off', 'get back'], [
+  'A popular island tour has limited places. You need to reserve it, decide when to leave your hotel, and plan your return.',
+  'You want to visit a distant castle by coach. Seats are limited, and you need departure and return plans.',
+  'A guided nature walk requires reservations. You need to organize an early departure and be back before your evening train.',
+  'You want a day trip to a nearby town on a busy weekend. You need transport reservations and a sensible return plan.',
+  'A boat excursion fills up quickly. You need to reserve a place and plan how to reach it and return to your accommodation.'
+]);
+PracticeContent.add('travel', 'Staying together in a busy place', ['keep an eye on', 'meet up', 'find out'], [
+  'Your group wants to split up at a crowded market. You need to watch your belongings and learn a clear place to gather afterward.',
+  'Friends want different activities at a festival. You need to keep belongings attended and choose a meeting place everyone can find.',
+  'Your family is exploring a large museum separately. You need a clear meeting arrangement and a plan for watching shared bags.',
+  'Your group is shopping at a busy station. You need to watch the luggage and learn where everyone should gather before departure.',
+  'Friends are exploring different streets in an unfamiliar town. You need to watch your things and agree a recognizable meeting point.'
+]);
+PracticeContent.add('travel', 'Changing plans with a travel companion', ['sort out', 'meet up', 'instead'], [
+  'Your friend cannot reach the original café. You need to agree on a different meeting place that works for both of you.',
+  'The tour you planned together is canceled. You need to agree on a replacement activity and a place to meet.',
+  'Your companion’s train arrives at a different station. You need to resolve the meeting plan and choose another location.',
+  'The restaurant where you arranged dinner is closed. You need to agree on another place and a new meeting time.',
+  'Heavy rain makes the park an unsuitable meeting point. You need to arrange an indoor alternative with your friend.'
+]);
+PracticeContent.add('travel', 'Exploring with a time limit', ['look around', 'stick to', 'make it'], [
+  'You have ninety minutes before a booked tour. You want to explore nearby streets without missing the meeting time.',
+  'Your train leaves in two hours. You want a short visit to the old town while keeping to a strict return schedule.',
+  'You have an hour before your museum entry. You want to explore nearby shops and still arrive on time.',
+  'Your coach stops in a small town for a short break. You want to explore the square without missing the departure.',
+  'You have limited time before a concert. You want to explore the surrounding area while following a plan that gets you there punctually.'
+]);
+PracticeContent.add('travel', 'Planning the end of a day', ['take a break', 'find out', 'get back'], [
+  'You are tired after sightseeing and want to rest before returning. You need to learn when the last bus leaves.',
+  'Your group wants a café stop before returning from the coast. You need the final train time before deciding how long to stay.',
+  'You have finished a long walk and want to rest. You need to learn the available transport back to your village.',
+  'You are leaving a crowded event and want a quiet pause. You need to learn how late the hotel shuttle runs.',
+  'You have spent the day exploring an island. You want to rest, but you need the last ferry information before returning.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('travel', 'Starting a journey', ['set off', 'pick up', 'on the way'], [
+  'Your train leaves at noon. You need to begin the journey early enough to collect a friend from their house before reaching the station.',
+  'You are driving to a seaside town. A friend needs collecting, and you want to stop for breakfast during the journey.',
+  'Your airport transfer is tomorrow morning. You need to collect your suitcase from a relative before continuing to the terminal.',
+  'You are traveling to a wedding. You must leave early enough to collect the gift from a shop during the journey.',
+  'You are driving to a campsite. A friend and some rented equipment need collecting before you reach the site.'
+]);
+PracticeContent.add('travel', 'Using unfamiliar public transport', ['find out', 'get on', 'get off'], [
+  'You want to reach the city museum by bus. You do not know the route, where to board, or which stop to leave at.',
+  'Your hotel is near a tram line. You need to learn which tram reaches the market and where your journey should begin and end.',
+  'A local ferry can take you to an island. You need to learn which departure point and arrival pier to use.',
+  'You want to visit a stadium by train. You need to learn the correct platform and the station where you should leave the train.',
+  'An airport shuttle serves several terminals. You need to learn which bus to board and which terminal is yours.'
+]);
+PracticeContent.add('travel', 'Making a connection', ['make it', 'find out', 'get on'], [
+  'Your train is late and the connecting bus leaves soon. You need to learn the departure point and decide whether you can board in time.',
+  'A delayed flight has shortened your transfer time. You need to learn where the next gate is and whether boarding is still open.',
+  'Your ferry arrives close to the last bus departure. You need to learn the bus location and work out whether you can catch it.',
+  'A long taxi queue threatens your train connection. You need to learn whether a shuttle can get you there before boarding closes.',
+  'You reach a large station just before departure. You need the platform information and must decide whether you can catch your train.'
+]);
+PracticeContent.add('travel', 'Choosing how to explore', ['get around', 'find out', 'stick to'], [
+  'You have two days in a large city and a limited budget. You need to compare transport passes and learn what each includes.',
+  'You want to visit several villages without renting a car. You need route information and a plan that fits your spending limit.',
+  'Your hotel is far from the attractions. You need to learn the cheapest practical transport options and stay within your daily budget.',
+  'You are visiting a city during a busy festival. You need current transport information and a plan that fits your limited time.',
+  'You want to explore a coastal area with infrequent buses. You need route details and a plan that stays within your budget.'
+]);
+PracticeContent.add('travel', 'Arranging a lift', ['pick up', 'drop off', 'in advance'], [
+  'Your friend offers an airport lift. You need to agree beforehand where they will collect you and which terminal entrance you need.',
+  'A shuttle serves your guesthouse. You need to arrange collection early and explain where you want to be left near the station.',
+  'Your group has booked a driver for a day trip. You need to confirm the collection point and final destination before the day.',
+  'A relative will collect you after a late arrival. You need to agree the meeting place and hotel destination beforehand.',
+  'Your accommodation offers a station transfer. You need to arrange it before traveling and specify your collection and arrival points.'
+]);
+PracticeContent.add('travel', 'Keeping luggage with you', ['keep an eye on', 'pick up', 'get on'], [
+  'Your bags are beside a station bench while you buy tickets. A friend must watch them before you collect them and board.',
+  'You leave luggage at the coach waiting area to buy water. Someone needs to watch it before you collect it for boarding.',
+  'Your group has stacked bags at the ferry terminal. You need someone to watch them until you collect everything and board.',
+  'A friend queues for train tickets while you watch the luggage. Boarding starts soon, so all bags need collecting before you leave.',
+  'Your suitcase is beside the shuttle stop while you speak to the driver. Your companion needs to watch it until you board.'
+]);
+PracticeContent.add('travel', 'Recovering from a missed stop', ['get off', 'go back', 'find out'], [
+  'You have passed the stop for your hotel. You need to leave the bus safely and learn how to return to the correct area.',
+  'You are on a tram going beyond the museum. You need to leave at the next stop and learn the return route.',
+  'You stayed on a train past your destination. You need to leave at the next station and learn which service returns there.',
+  'Your airport shuttle has reached the wrong terminal for your flight. You need to leave it and learn how to return.',
+  'You missed the ferry pier nearest your accommodation. You need to leave at the next pier and learn the best route back.'
+]);
+PracticeContent.add('travel', 'Handling a transport disruption', ['sort out', 'instead', 'make it'], [
+  'Your airport train is canceled. You need another route and must decide whether you can still arrive before your flight closes.',
+  'The bus to your tour meeting point has broken down. You need an alternative and want to arrive before the guide leaves.',
+  'A ferry cancellation changes your plans. You need another route to the wedding and must check whether you can arrive in time.',
+  'Your reserved taxi has not appeared. You need another way to the station and want to catch the final train.',
+  'A road closure stops the usual shuttle. You need another travel arrangement and must reach your booked event before it starts.'
+]);
+PracticeContent.add('travel', 'Coordinating arrivals', ['meet up', 'find out', 'on the way'], [
+  'You and a friend arrive at different stations. You need to learn a convenient meeting point while traveling toward the hotel.',
+  'Your group arrives on separate flights. You need to learn where everyone can meet before continuing into the city.',
+  'A friend is joining your road trip from another town. You need to find a meeting place that fits your route.',
+  'You and your sibling are traveling separately to a festival. You need to learn a useful meeting point before reaching the campsite.',
+  'Your friends arrive by coach while you arrive by train. You need to choose a meeting place during the journey to your accommodation.'
+]);
+PracticeContent.add('travel', 'Leaving enough time', ['set off', 'make it', 'in advance'], [
+  'Your flight departs during the morning rush. You need to arrange transport beforehand and choose a departure time that avoids missing it.',
+  'A timed museum entry is across the city. You need to plan the route beforehand and leave early enough to reach it.',
+  'The last ferry leaves before sunset. You need to plan the journey beforehand and choose a departure time that gives you enough margin.',
+  'A day trip starts outside your hotel district. You need to arrange transport beforehand and leave early enough to meet the guide.',
+  'You have tickets for a show in another town. You need to plan the route beforehand and leave early enough to arrive before it starts.'
+]);
+
+</script>
+  <script>
+PracticeContent.vocabulary.everyday = [
+  ['another', 'One more or a different one of the same kind.', 'This café is full, but I know another one.'],
+  ['instead', 'In place of a different choice.', 'Let’s have lunch outside instead.'],
+  ['catch up', 'Talk about what has happened since you last met.', 'We should catch up over coffee.'],
+  ['count on', 'Trust someone to help or do what they promised.', 'You can count on me to help you move.'],
+  ['in the mood for', 'Feel like having or doing something.', 'I am in the mood for a quiet evening.'],
+  ['look forward to', 'Feel excited about something in the future.', 'I am looking forward to seeing you.'],
+  ['get together', 'Meet socially with other people.', 'We could get together on Saturday.'],
+  ['put off', 'Delay doing something until later.', 'I keep putting off that phone call.'],
+  ['turn down', 'Refuse an offer or invitation.', 'I had to turn down the invitation because I was working.'],
+  ['bring up', 'Introduce a topic in a conversation.', 'How can I bring up the change of plans?'],
+  ['work out', 'Find a solution or reach an arrangement.', 'We can work out a time that suits everyone.'],
+  ['keep in touch', 'Continue communicating over time.', 'Let’s keep in touch after you move.'],
+  ['get along with', 'Have a friendly relationship with someone.', 'I get along with my new coworkers.'],
+  ['run into', 'Meet someone unexpectedly.', 'I ran into an old friend at the market.'],
+  ['give it a try', 'Try something to see whether you like it or can do it.', 'I have never played chess, but I will give it a try.'],
+  ['make up my mind', 'Decide what to do or choose.', 'I need to make up my mind about the course.'],
+  ['change my mind', 'Decide something different from before.', 'I changed my mind and chose the earlier train.'],
+  ['take turns', 'Do something one person after another.', 'We can take turns choosing the film.'],
+  ['help out', 'Give practical help.', 'Could you help out at the community event?'],
+  ['come up with', 'Think of an idea or solution.', 'We need to come up with a cheaper plan.'],
+  ['let someone know', 'Tell someone about something.', 'Please let me know if your plans change.'],
+  ['make time for', 'Arrange your schedule so you can do something.', 'I want to make time for reading.'],
+  ['feel like', 'Want to do or have something.', 'I feel like going for a walk.'],
+  ['be up for', 'Be willing or interested in doing something.', 'Would you be up for a game of tennis?'],
+  ['get used to', 'Become familiar or comfortable with something new.', 'I am getting used to my new work schedule.']
+];
+
+</script>
+  <script>
+PracticeContent.add('everyday', 'Choosing somewhere to eat or drink', ['another', 'instead', 'in the mood for'], [
+  'Your usual café is full. You want somewhere quiet, while your friend suggests a noisy place nearby. Explain the alternative you would choose.',
+  'Your friend suggests pizza, but you want something lighter. The first restaurant has no other options, so you need a different place.',
+  'The restaurant you planned to visit has closed. You want spicy food and know a different place that could suit both of you.',
+  'Your friend wants coffee, but you would prefer tea. The café you are in has little choice, so you suggest a different one.',
+  'You planned a large dinner, but now you only want a snack. A different café offers something that fits your appetite better.'
+]);
+PracticeContent.add('everyday', 'Planning time with friends', ['catch up', 'get together', 'look forward to'], [
+  'A friend you have not seen for a year is visiting next month. You want to arrange a meeting and hear their news.',
+  'Your old classmates are back in town for a weekend. You want to organize a relaxed meeting and exchange news.',
+  'A former coworker has moved nearby. You want to arrange a meal and hear what has happened since you last worked together.',
+  'Your cousin is coming home after studying abroad. You want to arrange a family meeting and hear about their experience.',
+  'Two friends have finished a long project and are finally free. You want to arrange an evening together and hear how it went.'
+]);
+PracticeContent.add('everyday', 'Declining politely', ['turn down', 'let someone know', 'instead'], [
+  'A friend invites you to dinner on a night you work. You need to decline promptly and suggest a different time.',
+  'You receive an invitation to an expensive weekend away. It does not fit your budget, so you want to explain and suggest a simpler plan.',
+  'A neighbor invites you to a loud party, but you need an early night. You want to reply politely and suggest coffee another day.',
+  'Your friends invite you hiking during a family visit. You need to decline and tell them what you could do on a different day.',
+  'A coworker invites you to a film you have already seen. You want to decline kindly and suggest a different shared activity.'
+]);
+PracticeContent.add('everyday', 'Choosing an activity together', ['be up for', 'give it a try', 'make up my mind'], [
+  'Your friend suggests a beginner dance class. You are interested but unsure, and you need to decide whether to try one session.',
+  'A colleague asks whether you want to join a casual chess group. You have never played and need to decide whether to try it.',
+  'Your neighbor suggests a pottery workshop. You are curious but hesitant, and you need to decide whether to attend.',
+  'A friend invites you to a beginner tennis lesson. You are interested but uncertain about your ability and need to decide.',
+  'Someone suggests a language-exchange evening. You might enjoy it, but you are nervous and need to decide whether to try it.'
+]);
+PracticeContent.add('everyday', 'Adapting social plans', ['change my mind', 'let someone know', 'another'], [
+  'You agreed to a late film but now prefer an earlier showing. You need to tell your friend and suggest a different time.',
+  'You chose a crowded restaurant but now want somewhere quieter. You need to tell the group and propose a different place.',
+  'You planned to host dinner but now prefer to meet outside. You need to tell everyone and suggest a different arrangement.',
+  'You selected a long walking route but now prefer a shorter one. You need to tell your companion and offer a different route.',
+  'You agreed on a weekend date but now prefer the following week. You need to tell your friend and propose a new date.'
+]);
+PracticeContent.add('everyday', 'Finding a plan everyone likes', ['come up with', 'work out', 'take turns'], [
+  'Your group always argues about which film to watch. You need an idea and a fair arrangement for choosing future films.',
+  'You and your friend prefer different restaurants. You need a plan that gives each person a chance to choose.',
+  'Your family disagrees about weekend activities. You want an arrangement that allows everyone to make a choice on different weekends.',
+  'Two friends always choose the music at gatherings. You want a fair plan that lets the others choose too.',
+  'Your walking group disagrees about routes. You need an arrangement where different members can lead on different days.'
+]);
+PracticeContent.add('everyday', 'Making plans without pressure', ['feel like', 'be up for', 'instead'], [
+  'Your friend suggests a long night out, but you want a quiet evening. Explain what you would enjoy and offer a gentler option.',
+  'Your group wants to run, but you would rather walk. Explain your preference and see whether anyone wants to join you.',
+  'A friend wants to cook a complicated dinner, but you want something simple. Explain what you would prefer doing together.',
+  'Your companion suggests a crowded market, but you want fresh air. Explain your preference and offer another activity.',
+  'Your friends want to play a competitive game, but you want something relaxed. Explain your preference and suggest an alternative.'
+]);
+PracticeContent.add('everyday', 'Keeping an arrangement realistic', ['put off', 'work out', 'let someone know'], [
+  'A busy workweek means you cannot host dinner on the planned day. You need to postpone it, choose a new time, and tell your guests.',
+  'Your group cannot finish preparing for a picnic by Saturday. You need a later date that works for everyone and a clear update.',
+  'You have too many commitments to attend a planned game night. You need to discuss a delay and tell the group what changes.',
+  'A friend needs more time before a shared project session. You need to agree a later date and notify the others.',
+  'The room for your club meeting is unavailable. You need to postpone the meeting, agree another time, and inform the members.'
+]);
+PracticeContent.add('everyday', 'Welcoming someone new', ['get along with', 'get together', 'give it a try'], [
+  'A new neighbor seems friendly but knows nobody nearby. You want to invite them to a relaxed gathering and encourage them to try it.',
+  'A new coworker shares your interests. You want to invite them to your informal game evening without making them feel pressured.',
+  'Someone new has joined your walking group. You want to arrange a casual meeting and encourage them to try the next walk.',
+  'Your new housemate seems easy to talk to. You want to arrange a shared meal and suggest trying a recipe together.',
+  'A friend introduces you to someone with similar hobbies. You want to arrange a group activity and try spending more time together.'
+]);
+PracticeContent.add('everyday', 'Looking forward to a shared activity', ['look forward to', 'make time for', 'let someone know'], [
+  'A friend is visiting during a busy workweek. You are excited and need to arrange free time and tell them when you are available.',
+  'Your family has planned a reunion. You are excited but need to clear part of your schedule and confirm your attendance.',
+  'A favorite author is speaking nearby. You want to attend with a friend and need to arrange time and confirm your plans.',
+  'Your old club is holding a celebration. You want to go, but first you need to arrange your schedule and reply to the organizer.',
+  'A friend is performing in a local show. You want to support them and need to arrange time and tell them which evening you can attend.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('everyday', 'Offering practical help', ['help out', 'count on', 'let someone know'], [
+  'Your friend is moving and needs reliable help with boxes. Explain what you can do and tell them when you are available.',
+  'A neighbor is organizing a community lunch and needs reliable volunteers. Explain how you can assist and confirm your availability.',
+  'Your sibling is preparing for a school event and needs dependable help. Explain what you can do and when you can arrive.',
+  'A friend has a busy week and needs someone reliable to collect a parcel. Explain your offer and confirm the arrangement.',
+  'A local club needs dependable help arranging chairs. Explain what support you can offer and tell the organizer your schedule.'
+]);
+PracticeContent.add('everyday', 'Staying connected after a move', ['keep in touch', 'make time for', 'catch up'], [
+  'Your close friend is moving to another city. You want a realistic plan for regular contact and longer conversations.',
+  'A coworker you like is leaving the company. You want to stay connected and arrange occasional conversations outside work.',
+  'Your sibling is moving abroad. You want to fit regular calls into different schedules and continue hearing each other’s news.',
+  'A study partner is starting a different course. You want to stay connected and arrange time to talk about how things are going.',
+  'Your neighbor is moving away. You want to maintain the friendship and arrange occasional meetings to exchange news.'
+]);
+PracticeContent.add('everyday', 'Meeting someone unexpectedly', ['run into', 'catch up', 'keep in touch'], [
+  'You unexpectedly meet an old classmate at a market. You have little time now but want to hear their news and stay connected.',
+  'You unexpectedly see a former coworker on a train. You enjoy a brief conversation and want to continue the friendship.',
+  'You meet a childhood neighbor by chance at a café. You want to exchange news and find a way to stay connected.',
+  'You unexpectedly meet an old teammate at a local event. You want a longer conversation later and a way to contact them.',
+  'You see a former teacher by chance at a bookshop. You want to share your news and arrange a way to stay connected.'
+]);
+PracticeContent.add('everyday', 'Discussing a small disagreement', ['bring up', 'work out', 'get along with'], [
+  'You like your housemate, but their late-night noise bothers you. Explain how you would discuss it and agree on a workable arrangement.',
+  'You get on well with a coworker, but shared tasks are uneven. Explain how you would discuss the problem and agree on a fair solution.',
+  'Your friend often arrives late, although you value the friendship. Explain how you would raise it and agree on a better plan.',
+  'Your neighbor is friendly, but their belongings block the shared entrance. Explain how you would discuss it and agree on a solution.',
+  'You enjoy working with your study partner, but they change plans at the last minute. Explain how you would discuss a better arrangement.'
+]);
+PracticeContent.add('everyday', 'Sharing responsibilities fairly', ['take turns', 'help out', 'work out'], [
+  'Your group needs someone to bring snacks each week. Explain how you would divide the job so everyone contributes.',
+  'Two housemates always wash the shared dishes. Explain how you would arrange a fair rotation and encourage others to assist.',
+  'Your club needs volunteers to open the meeting room. Explain how you would organize a rota that shares the responsibility.',
+  'Several friends share a ride to an activity. Explain how you would arrange driving duties so the work is shared.',
+  'Your family needs someone to prepare weekend lunch. Explain how you would rotate the task and support whoever is cooking.'
+]);
+PracticeContent.add('everyday', 'Being honest about availability', ['count on', 'turn down', 'let someone know'], [
+  'A friend expects you to help all weekend, but you can only help on Saturday. Explain your limits while being clear about your reliable offer.',
+  'A club asks you to organize two events, but you can manage only one. Explain what you must decline and what you can commit to.',
+  'Your neighbor asks for help every evening this week. You can reliably manage two evenings and need to explain the rest.',
+  'A coworker asks you to cover several extra tasks. You can guarantee one task but need to decline the others clearly.',
+  'Your family expects you at two gatherings on the same day. You need to decline one and confirm which one you can attend.'
+]);
+PracticeContent.add('everyday', 'Making conversation more natural', ['bring up', 'another', 'get along with'], [
+  'You are speaking with a new coworker about coffee. You want to introduce a different shared interest and build a friendly connection.',
+  'You meet a neighbor who enjoys gardening. You want to introduce a different hobby you might share without changing the subject abruptly.',
+  'You are talking to someone new about films. You want to introduce a different topic that helps you get to know each other.',
+  'A new club member talks about work. You want to introduce a different interest and make the conversation friendlier.',
+  'You are chatting with a friend’s sibling about travel. You want to introduce a different shared interest and continue getting acquainted.'
+]);
+PracticeContent.add('everyday', 'Inviting someone to join in', ['be up for', 'get together', 'get used to'], [
+  'A friend has just moved to your city and is adjusting to life there. Explain how you would invite them to a relaxed group meeting.',
+  'A new coworker is adjusting to the team. Explain how you would invite them to an informal lunch with colleagues.',
+  'A new housemate is adjusting to everyone’s routines. Explain how you would suggest a shared evening without putting pressure on them.',
+  'A friend is adjusting to a new work schedule. Explain how you would invite them to meet at a time that suits them.',
+  'Someone new has joined your class and is still settling in. Explain how you would invite them to a friendly study gathering.'
+]);
+PracticeContent.add('everyday', 'Repairing a missed arrangement', ['bring up', 'work out', 'let someone know'], [
+  'You forgot a coffee meeting with a friend. Explain how you would discuss it, arrange another meeting, and confirm the details.',
+  'Your group misunderstood the time of a call. Explain how you would discuss the mix-up and agree on a clear new arrangement.',
+  'A shared activity was canceled without everyone hearing. Explain how you would discuss the problem and communicate a replacement plan.',
+  'You and a neighbor each thought the other would book a room. Explain how you would discuss the mistake and agree what happens next.',
+  'Your club meeting started before a new member arrived. Explain how you would discuss the confusion and communicate future times clearly.'
+]);
+PracticeContent.add('everyday', 'Keeping a friendship going', ['get along with', 'make time for', 'get together'], [
+  'You enjoy talking with a former colleague, but your schedules rarely match. Explain how you would arrange time to meet.',
+  'You and a neighbor have become friendly but are both busy. Explain how you would fit a regular shared activity into your schedules.',
+  'You enjoy spending time with a friend from a course that has ended. Explain how you would arrange future meetings.',
+  'You have become friends with someone at your sports club. Explain how you would arrange time together outside the club.',
+  'You and a cousin have similar interests but rarely meet. Explain how you would make a practical plan to spend time together.'
+]);
+
+</script>
+  <script>
+PracticeContent.add('everyday', 'Trying a new hobby', ['give it a try', 'get used to', 'make time for'], [
+  'You want to learn guitar but have never played. Explain how you would try it, adjust to regular practice, and fit it into your week.',
+  'A friend suggests sketching as a relaxing hobby. Explain how you would start, adjust to the activity, and arrange regular time for it.',
+  'You want to try gardening on your balcony. Explain how you would begin, adjust to the routine, and make space in your schedule.',
+  'You are curious about cooking more meals yourself. Explain how you would try it, adjust to preparation, and fit it around work.',
+  'You want to start reading in English. Explain how you would try it, become comfortable with the habit, and arrange regular reading time.'
+]);
+PracticeContent.add('everyday', 'Making a choice', ['make up my mind', 'another', 'give it a try'], [
+  'You are choosing between two beginner courses. One seems difficult, but a different class offers a trial session.',
+  'You want a new café for studying. The first is noisy, but a different place offers a quiet afternoon you could try.',
+  'You are choosing a hobby group. One meets too late, but a different group has a beginner session you could attend.',
+  'You want to try a new exercise class. The first style does not appeal to you, but a different option offers a trial.',
+  'You are deciding which language app to use. One feels confusing, but a different app has a free lesson you could try.'
+]);
+PracticeContent.add('everyday', 'Changing an everyday habit', ['put off', 'make time for', 'give it a try'], [
+  'You keep delaying a short daily walk because you feel busy. Explain how you would create time and try a manageable routine.',
+  'You have postponed practicing English outside class. Explain how you would fit a short session into your day and test the routine.',
+  'You keep delaying learning to cook a simple meal. Explain how you would arrange time and try one recipe.',
+  'You have postponed reading a book you chose months ago. Explain how you would find time and try a small daily reading habit.',
+  'You keep delaying organizing your photos. Explain how you would create a short regular session and try a simple system.'
+]);
+PracticeContent.add('everyday', 'Finding a less expensive option', ['come up with', 'instead', 'be up for'], [
+  'Your friends suggest an expensive evening out. Explain a cheaper idea and how you would ask whether they want to join.',
+  'Your group wants to book a costly activity. Explain a free alternative and how you would find out who is interested.',
+  'A friend proposes a weekend trip beyond your budget. Explain a local alternative and ask whether they would enjoy it.',
+  'Your family wants a restaurant celebration that costs too much. Explain another plan and ask whether people would participate.',
+  'Your club wants to hire a venue it cannot afford. Explain a cheaper gathering idea and ask whether members would support it.'
+]);
+PracticeContent.add('everyday', 'Adjusting to a new routine', ['get used to', 'work out', 'make time for'], [
+  'Your new job starts earlier than your old one. Explain how you would adjust your routine and still fit in time with friends.',
+  'You have started evening classes. Explain how you would adjust your schedule and still make space for hobbies.',
+  'A longer commute has changed your weekdays. Explain how you would adjust and plan time for activities you value.',
+  'Your family’s schedule has changed for the new school term. Explain how you would arrange a routine that still allows shared meals.',
+  'You are working from home for the first time. Explain how you would adjust and arrange time for breaks and social contact.'
+]);
+PracticeContent.add('everyday', 'Deciding how to spend free time', ['feel like', 'make up my mind', 'instead'], [
+  'You planned to watch a film but now want fresh air. Explain how you would decide between staying in and going for a walk.',
+  'You planned to go shopping but now want a quiet afternoon. Explain how you would choose a different way to spend the time.',
+  'You planned to cook, but now you want to see a friend. Explain how you would decide on a different evening plan.',
+  'You planned a long outing but now want something simple. Explain how you would choose an activity that fits your energy.',
+  'You planned to read alone but now want company. Explain how you would decide whether to arrange something social.'
+]);
+PracticeContent.add('everyday', 'Making a shared project manageable', ['come up with', 'take turns', 'help out'], [
+  'Your friends want to start a small book club. Explain an idea for running it and sharing the organizing work.',
+  'Your neighbors want a regular shared meal. Explain how different people could host and assist with preparation.',
+  'Your group wants to practice speaking English together. Explain an activity and how everyone could lead or assist in turn.',
+  'Your club wants to arrange a monthly cleanup. Explain a plan for rotating leadership and getting members to assist.',
+  'Your family wants to organize old photographs. Explain a method and how everyone could share the work.'
+]);
+PracticeContent.add('everyday', 'Discussing a change of preference', ['change my mind', 'bring up', 'let someone know'], [
+  'You agreed to a group activity but have realized you would prefer something else. Explain how you would introduce the change politely.',
+  'You chose a restaurant for a celebration but now prefer a home meal. Explain how you would raise the idea with everyone.',
+  'You agreed on a shared gift but now think a different one would suit the recipient better. Explain how you would tell the group.',
+  'You chose a meeting time but now prefer an earlier one. Explain how you would introduce the change without assuming everyone agrees.',
+  'You agreed to lead a club activity but now prefer a supporting role. Explain how you would discuss the change with the organizer.'
+]);
+PracticeContent.add('everyday', 'Helping a friend try something new', ['count on', 'give it a try', 'be up for'], [
+  'A friend wants to attend a language exchange but is nervous about going alone. Explain how you could support them and join the first session.',
+  'Your friend wants to try a beginner dance class but lacks confidence. Explain how you could support them and attend together.',
+  'A friend wants to volunteer but is unsure about the first visit. Explain how you could support them and try a session together.',
+  'Your friend wants to join a casual walking group but knows nobody. Explain how you could support them on the first walk.',
+  'A friend wants to try a new board-game club but feels shy. Explain how you could support them and join an introductory evening.'
+]);
+PracticeContent.add('everyday', 'Keeping future plans alive', ['look forward to', 'put off', 'keep in touch'], [
+  'A visit you were excited about must be delayed. Explain how you would stay connected with your friend while waiting for a new date.',
+  'A reunion you were excited about has been postponed. Explain how the group could stay connected until it happens.',
+  'Your friend must delay moving to your city. Explain your reaction and how you would stay connected in the meantime.',
+  'A shared course you were excited about will start later. Explain how you would stay connected with your study partner until then.',
+  'A family gathering you wanted to attend must be delayed. Explain how you would stay connected with relatives while plans are rearranged.'
+]);
+
+</script>
+  <script>
+(() => {
+  const names = { home: 'Home', restaurant: 'Restaurant', travel: 'Travel', everyday: 'Everyday conversations' };
+  window.STARTER_SETS = Object.entries(names).map(([id, name]) => {
+    const words = PracticeContent.vocabulary[id].map(([term, meaning, example]) => ({ term, meaning, example }));
+    const byTerm = new Map(words.map(word => [word.term, word]));
+    if (byTerm.size !== words.length) throw new Error(`Duplicate vocabulary in ${name}.`);
+    const seen = new Set();
+    const situations = PracticeContent.situations[id].map(scene => {
+      if (!scene.text?.trim() || !scene.context?.trim() || seen.has(scene.id)) throw new Error(`Invalid situation in ${name}.`);
+      if (scene.terms.length !== 3 || new Set(scene.terms).size !== 3) throw new Error(`${scene.id} needs three different phrases.`);
+      seen.add(scene.id);
+      const targets = scene.terms.map(term => {
+        if (!byTerm.has(term)) throw new Error(`Unknown phrase “${term}” in ${scene.id}.`);
+        return byTerm.get(term);
+      });
+      return { ...scene, words: targets };
+    });
+    return { id, name, words, situations };
+  });
+})();
+
+</script>
+  <script>
+(() => {
+  const tasks = [
+    'What would you do, and why? Use the three phrases to explain your plan in your own words.',
+    'How would you handle this? Use the three phrases and explain the reasons for your choices.',
+    'Explain what needs to happen next using the three phrases. Add any details that help your answer.'
+  ];
+  const pick = (items, random) => items[Math.floor(random() * items.length)];
+  function generate(sets, selected, recent = [], random = Math.random) {
+    const pool = sets.filter(set => selected.includes(set.id) && set.situations.length);
+    if (!pool.length) return null;
+    const seen = new Set(recent);
+    let available = pool.map(set => ({ set, scenes: set.situations.filter(scene => !seen.has(scene.id)) })).filter(group => group.scenes.length);
+    const resetHistory = available.length === 0;
+    if (resetHistory) {
+      // Start a new cycle, keeping the last situation out when alternatives exist.
+      available = pool.map(set => ({ set, scenes: set.situations.filter(scene => scene.id !== recent.at(-1)) })).filter(group => group.scenes.length);
+      if (!available.length) available = pool.map(set => ({ set, scenes: set.situations }));
+    }
+    const { set, scenes } = pick(available, random);
+    const scene = pick(scenes, random);
+    return { setId: set.id, name: set.name, context: scene.context, words: scene.words, scenario: scene.text,
+      key: scene.id, task: pick(tasks, random), style: 'explain', resetHistory };
+  }
+  window.LessonGenerator = { generate };
+})();
+
+</script>
+  <script>
+(() => {
+  const $ = id => document.getElementById(id);
+  function el(tag, text = '', className = '') {
+    const node = document.createElement(tag);
+    node.textContent = text;
+    if (className) node.className = className;
+    return node;
+  }
+  window.UI = { $, el };
+})();
+
+</script>
+  <script>
+(() => {
+  const { $, el } = UI;
+  function sets(sets, selected, onSelect) {
+    $('set-list').replaceChildren();
+    if (!sets.length) $('set-list').append(el('p', 'No practice sets are available yet.', 'muted'));
+    for (const set of sets) {
+      const row = el('div', '', 'set-row');
+      const label = el('label');
+      const input = el('input');
+      input.type = 'checkbox';
+      input.checked = selected.includes(set.id);
+      input.onchange = () => onSelect(set.id, input.checked);
+      const info = el('span');
+      info.append(el('strong', set.name), el('small', `${set.words.length} phrases · ${set.situations.length} situations`));
+      label.append(input, info);
+      row.append(label);
+      $('set-list').append(row);
+    }
+  }
+  function vocabulary(sets, selected) {
+    const chosen = sets.filter(set => selected.includes(set.id));
+    const count = chosen.reduce((total, set) => total + set.words.length, 0);
+    $('vocabulary-summary').textContent = `Your vocabulary list · ${count} words & phrases`;
+    $('vocabulary-list').replaceChildren();
+    for (const set of chosen) {
+      const group = el('section', '', 'vocab-group');
+      group.append(el('h3', set.name));
+      for (const word of set.words) {
+        const row = el('div', '', 'vocab-word');
+        row.append(el('strong', word.term), el('span', word.meaning || word.example));
+        group.append(row);
+      }
+      $('vocabulary-list').append(group);
+    }
+  }
+  function challenge(item, round) {
+    $('hints').open = false;
+    $('scene-events').replaceChildren();
+    $('target-words').replaceChildren();
+    $('hint-content').replaceChildren();
+    $('context-label').textContent = item?.name || 'CHOOSE YOUR PRACTICE';
+    $('round-label').textContent = item ? `Situation ${round}` : '';
+    $('scene-intro').textContent = item?.context || 'Select a set with the vocabulary you want to practice.';
+    $('task').textContent = item?.task || 'Choose at least one set to get a new situation.';
+    $('hints').hidden = !item;
+    if (!item) return;
+    $('scene-events').append(el('p', item.scenario));
+    item.words.forEach(word => {
+      $('target-words').append(el('span', word.term, 'chip'));
+      const hint = el('div', '', 'hint-entry');
+      hint.append(el('strong', word.term));
+      if (word.meaning) hint.append(el('p', word.meaning));
+      if (word.example) hint.append(el('p', `Example: ${word.example}`));
+      $('hint-content').append(hint);
+    });
+    $('hint-content').append(el('p', 'Start with what you would do, then explain why. You can change the tense, pronouns, or word order of each phrase to fit your answer.', 'small muted'));
+  }
+  window.PracticeView = { sets, vocabulary, challenge };
+})();
+
+</script>
+  <script>
+(() => {
+  const { $ } = UI;
+  const sets = STARTER_SETS;
+  let selected = sets.map(set => set.id), round = 0;
+  let recent = [], classicLast = -1;
+  const classic = [...QUESTIONS.map(item => ({ ...item, kind: 'Question' })), ...WORDS.map(item => ({ ...item, kind: 'Word' }))];
+
+  function next() {
+    const item = LessonGenerator.generate(sets, selected, recent);
+    if (item) { round++; recent = item.resetHistory ? [item.key] : [...recent, item.key]; }
+    PracticeView.challenge(item, round);
+  }
+
+  PracticeView.sets(sets, selected, (id, checked) => {
+    selected = checked ? [...selected, id] : selected.filter(value => value !== id);
+    PracticeView.vocabulary(sets, selected);
+    $('next').disabled = !selected.length;
+    next();
+  });
+  $('next').onclick = next;
+  $('classic-next').onclick = () => {
+    let index = Math.floor(Math.random() * (classic.length - (classicLast < 0 ? 0 : 1)));
+    if (classicLast >= 0 && index >= classicLast) index++;
+    classicLast = index;
+    const item = classic[index];
+    $('classic-label').textContent = `${item.kind} · ${item.theme}`;
+    $('classic-prompt').textContent = item.text;
+  };
+  function mode(lesson) {
+    $('lesson-panel').hidden = !lesson;
+    $('roulette-panel').hidden = lesson;
+    $('lesson-mode').setAttribute('aria-pressed', String(lesson));
+    $('roulette-mode').setAttribute('aria-pressed', String(!lesson));
+  }
+  $('lesson-mode').onclick = () => mode(true);
+  $('roulette-mode').onclick = () => mode(false);
+  document.addEventListener('keydown', event => {
+    if (event.code !== 'Space' || event.repeat || event.altKey || event.metaKey || event.ctrlKey) return;
+    if (event.target.closest('input,textarea,select,button,a,summary,[contenteditable]')) return;
+    event.preventDefault();
+    if ($('lesson-panel').hidden) $('classic-next').click();
+    else if (!$('next').disabled) next();
+  });
+  PracticeView.vocabulary(sets, selected);
+  next();
+})();
+
+</script>
+</body>
+</html>
