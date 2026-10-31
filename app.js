@@ -2,8 +2,9 @@
   const { $ } = UI;
   const sets = STARTER_SETS;
   let selected = sets.map(set => set.id), round = 0;
-  let recent = [], classicLast = -1;
-  const classic = [...QUESTIONS.map(item => ({ ...item, kind: 'Question' })), ...WORDS.map(item => ({ ...item, kind: 'Word' }))];
+  let recent = [], classicRecent = [];
+  const classic = [...QUESTIONS.map(item => ({ ...item, kind: 'Question' })), ...WORDS.map(item => ({ ...item, kind: 'Word' }))]
+    .map((item, id) => ({ ...item, id }));
 
   function next() {
     const item = LessonGenerator.generate(sets, selected, recent);
@@ -18,14 +19,13 @@
     next();
   });
   $('next').onclick = next;
-  $('classic-next').onclick = () => {
-    let index = Math.floor(Math.random() * (classic.length - (classicLast < 0 ? 0 : 1)));
-    if (classicLast >= 0 && index >= classicLast) index++;
-    classicLast = index;
-    const item = classic[index];
+  function nextClassic() {
+    const { item, resetHistory } = RandomCycle.draw(classic, classicRecent);
+    classicRecent = resetHistory ? [item.id] : [...classicRecent, item.id];
     $('classic-label').textContent = `${item.kind} · ${item.theme}`;
     $('classic-prompt').textContent = item.text;
-  };
+  }
+  $('classic-next').onclick = nextClassic;
   function mode(lesson) {
     $('lesson-panel').hidden = !lesson;
     $('roulette-panel').hidden = lesson;
@@ -42,5 +42,6 @@
     else if (!$('next').disabled) next();
   });
   PracticeView.vocabulary(sets, selected);
+  nextClassic();
   next();
 })();

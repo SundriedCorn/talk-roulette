@@ -34,6 +34,7 @@
     }
   }
   function challenge(item, round) {
+    SampleAnswers.render(item?.answers);
     $('hints').open = false;
     $('scene-events').replaceChildren();
     $('target-words').replaceChildren();

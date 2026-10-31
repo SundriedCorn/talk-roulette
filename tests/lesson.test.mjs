@@ -63,6 +63,7 @@ test('mixed practice preserves each complete scenario and its three intended phr
     assert.equal(item.scenario, scene.text);
     assert.equal(item.context, scene.context);
     assert.equal(item.words, scene.words);
+    assert.equal(item.answers, scene.answers);
     assert.equal(item.words.length, 3);
     assert.equal(item.style, 'explain');
     if (item.resetHistory) {

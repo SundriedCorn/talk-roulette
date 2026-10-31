@@ -63,6 +63,12 @@ main{max-width:1200px;margin:auto;padding:42px 28px}
 .hint-entry{font-size:13px;border-top:1px solid var(--line);padding-top:12px}
 .hint-entry p{margin:6px 0;color:var(--muted)}
 .hint-entry strong{color:var(--ink)}
+#sample-answers{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+#sample-answers summary{color:var(--blue);font-size:14px}
+.sample-answer{margin-top:18px;padding:18px;background:#f7f6fb;border-radius:12px}
+.sample-answer h3{color:var(--blue);margin-bottom:10px;font-size:13px}
+.sample-answer p{font-size:15px;margin-bottom:0;overflow-wrap:anywhere}
+.sample-answer strong{color:#504074}
 .generate-row{display:flex;gap:18px;align-items:center;margin-top:28px}
 .primary{background:linear-gradient(120deg,#ffb18a,#f497b4);border:0;color:#26131b;font-weight:700;padding:14px 22px}
 .primary:hover{background:#ffbf9e}
